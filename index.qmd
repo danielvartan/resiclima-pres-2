@@ -1,0 +1,615 @@
+## Olá! 👋 {.smaller}
+
+```{r}
+#| label: setup
+#| include: false
+
+library(here)
+
+source(here("R", "_setup.R"))
+```
+
+::::: {.columns}
+:::: {.column style="width: 55%; font-size: 0.75em;"}
+Esta apresentação trata sobre o uso de Modelos Baseados em Agentes (ABMs) e mostra como eles representam não apenas uma ferramenta, mas uma **perspectiva interdisciplinar** para a modelagem, permitindo incorporar e estudar os efeitos das mudanças climáticas de forma integrada.
+
+::: {style="padding-top: 15px;"}
+Aqui estão os tópicos principais:
+
+1. [**Modelos Baseados em Agentes**]{.brand-blue}
+1. [**WorldClim**]{.brand-blue}
+1. [**LogoClim: WorldClim no NetLogo**]{.brand-blue}
+1. [**Logônia: Um Exemplo de Aplicação**]{.brand-blue}
+1. [**Conclusão**]{.brand-blue}
+:::
+::::
+:::: {.column style="width: 45%; text-align: center"}
+![](images/yarn-colour.jpg){style="width: 55%;"}
+
+![](images/entangled-threads.jpg){style="width: 65%; margin-top: -25px;"}
+::::
+:::::
+
+::: {.notes}
+II Reunião de Perspectivas Multidisciplinares sobre Mudanças Climáticas
+:::
+
+::: footer
+(Ilustração de [Allison Horst](https://twitter.com/allison_horst))
+:::
+
+::: {.notes}
+Venho aqui novamente trazer uma nova perspectiva para lidar com os fenômenos climáticos e suas interações: modelos baseados em agentes.
+
+Objetivo/Mensagens que precisam ser transmitida:
+
+- Modelos baseados em agentes são uma ferramenta fácil, flexível e realista e intuitiva para se modelar fenômenos complexos.
+- ABMs permitem simular as interações e observar as emergências advindas delas.
+- Modelos baseados em agentes possibilitam ver e compreender o desenvolvimento de comportamentos ao longo do tempo.
+- É uma ótima ferramenta para o desenvolvimento e corroboração de teorias (e.g., psicologia evolutiva, ecologia, ciências sociais).
+- Modelos Baseados em Agentes conceituais e empíricos podem ser misturados para adicionar uma camadas complexas a modelos mais simples.
+- Modelos Baseados em Agentes empíricos podem ajudar a prever cenários e pontos de alavanca, como nas mudanças climáticas.
+:::
+
+## Modelos Baseados em Agentes {.smaller}
+
+::::: {.columns}
+:::: {.column style="width: 47.5%; font-size: 0.725em;"}
+Modelos baseados em agentes (ABMs) são **modelos computacionais** usados para simular o comportamento de agentes e suas interações, permitindo estudar **fenômenos emergentes**.
+
+Em vez de descrever um sistema apenas com variáveis que representam o estado do sistema como um todo (**abordagem global**/de cima pra baixo), modelamos seus agentes individuais (**abordagem local**/de baixo pra cima) [@railsback2019].
+
+Agentes frequentemente representam pessoas ou outros animais, mas **agentes também podem representar qualquer coisa**, desde células biológicas até empresas econômicas ou municípios políticos [@smaldino2023a].
+:::
+:::: {.column style="width: 5%;"}
+::::
+:::: {.column style="width: 47.5%;"}
+::: {layout-nrow=2 style="padding-top: 25px"}
+![](images/primer-figure-5.png){fig-align="center"}
+
+![](images/primer-2019-figure-01.gif){fig-align="center"}
+:::
+::::
+:::::
+
+::: footer
+(Imagem e vídeo de [Primer](https://www.youtube.com/watch?v=YNMkADpvO4w))
+:::
+
+::: {.notes}
+Modelos baseados em agentes são uma ferramenta fácil, flexível e realista e intuitiva para se modelar fenômenos complexos.
+
+ABMs permitem simular as interações e observar as emergências advindas delas.
+
+Modelos baseados em agentes possibilitam ver e compreender o desenvolvimento de comportamentos ao longo do tempo.
+
+Diferente de um modelo baseado em equações, que descreve o sistema como um todo, os ABMs se concentram nas interações locais entre os agentes.
+:::
+
+## Exemplos {.smaller}
+
+:::: {.columns}
+::: {.column style="width: 50%; font-size: 0.75em;"}
+**Ecologia**`<br>`{=html}[Presa-Predador](https://pt.wikipedia.org/wiki/Equa%C3%A7%C3%A3o_de_Lotka-Volterra) [@lotka1925; @volterra1926]
+
+![](images/wilensky-1997-wolf-sheep-predation-model.gif){fig-align="center" style="width: 90%;"}
+:::
+::: {.column style="width: 50%; font-size: 0.75em;"}
+**Epidemiologia**`<br>`{=html}[Epidemia (SIR)](https://pt.wikipedia.org/wiki/Modelo_epid%C3%AAmico#O_Modelo_SIR) [@kermack1927]
+
+![](images/yang-2011-epidem-basic-model.gif){fig-align="center" style="width: 90%;"}
+:::
+::::
+
+::: footer
+(Modelos de @wilensky1997 e @yang2011)
+:::
+
+::: {.notes}
+:::
+
+## Exemplos {.smaller}
+
+:::: {.columns}
+::: {.column style="width: 50%; font-size: 0.75em;"}
+**Física`<br>`{=html}[Figuras de Chladni](https://pt.wikipedia.org/wiki/Figura_de_Chladni)** [@chladni1787]
+
+![](images/brown-2025-chladni-figures-model.gif){fig-align="center" style="width: 90%;"}
+:::
+::: {.column style="width: 50%; font-size: 0.75em;"}
+**Psicologia Evolutiva**`<br>`{=html}Altruísmo [@lehmann2006]
+
+![](images/wilensky-1997-altruism-model.gif){fig-align="center" style="width: 90%;"}
+:::
+::::
+
+::: {.notes}
+:::
+
+::: footer
+(Modelos de @brown2025 e @wilensky1998a)
+:::
+
+## Exemplos {.smaller}
+
+:::: {.columns}
+::: {.column style="width: 50%; font-size: 0.75em;"}
+**Sociologia**`<br>`{=html}[Segregação](https://en.wikipedia.org/wiki/Schelling%27s_model_of_segregation) [@schelling1971]
+
+![](images/wilensky-1997-segregation-model.gif){fig-align="center" style="width: 90%;"}
+:::
+::: {.column style="width: 50%; font-size: 0.75em;"}
+**Ciências Ambientais**`<br>`{=html}[Incêndios Florestais](https://pt.wikipedia.org/wiki/Inc%C3%AAndio_de_vegeta%C3%A7%C3%A3o)
+
+![](images/wilensky-1997-fire-model.gif){fig-align="center" style="width: 90%;"}
+:::
+::::
+
+::: {.notes}
+:::
+
+::: footer
+(Modelo de @wilensky1997a e @wilensky1997b)
+:::
+
+## Exemplos {.smaller }
+
+::: {.column style="font-size: 0.75em;"}
+[**Agentes Generativos**](https://en.wikipedia.org/wiki/Schelling%27s_model_of_segregation)
+:::
+
+![](images/park-2023-generative-agents.gif){fig-align="center" style="width: 100%;"}
+
+::: {.notes}
+:::
+
+::: footer
+(Modelo de @park2023)
+:::
+
+## Modelagem Orient. a Padrões {.smaller}
+
+**Um padrão é qualquer coisa além da variação aleatória**.
+
+Podemos pensar em padrões como regularidades, sinais.
+
+:::: {.columns}
+::: {.column .center style="width: 50%; padding-top: 30px;"}
+![](images/national-geographic-2016-clip.gif){fig-align="center" style="width: 90%;"}
+:::
+::: {.column style="width: 50%; padding-top: 30px;"}
+![](images/wilenski-1998-flocking-model.gif){fig-align="center" style="width: 90%;"}
+:::
+::::
+
+::: {style="font-size: 0.65em; padding-left: 30px; padding-right: 30px; margin-top: -30px" .brand-gray}
+**Alinhamento**: Um pássaro tende a se mover na mesma direção que os pássaros próximos.
+
+**Separação**: Um pássaro vai se afastar para evitar outro pássaro que se aproxime demais.
+
+**Coesão**: Um pássaro se moverá em direção a outros pássaros próximos (a menos que outro pássaro esteja muito próximo).
+
+:::
+
+::: footer
+(Vídeo de National Geographic | Modelo de @wilensky1998, baseado em @reynolds1987)
+:::
+
+::: {.notes}
+:::
+
+## Usos de ABMs {.smaller}
+
+Desenvolvimento e **corroboração** de teorias.
+
+**Exploração** de cenários e pontos de alavanca.
+
+**Previsão** de cenários futuros (apenas para modelos empíricos) (e.g., modelos climáticos).
+
+:::: {.brand-red style="font-weight: bold; text-align: center; padding-top: 2em;"}
+Dada às condições da sua teoria ou hipótese, é possível replicar o fenômeno e seus padrões por meio de uma simulação de agentes?
+::::
+
+::: {.notes}
+(...) eles acham que você terminou quando não consegue adicionar mais nada. Eu acho que você terminou quando não consegue tirar mais nada. [@rutt2020]
+
+Um bom modelo é simples, válido e robusto [@sayama2015].
+
+**Todos os modelos estão errados**, mas alguns são úteis [@box1979, p. 202].
+
+O critério para o status científico de uma teoria é sua falsificabilidade, refutabilidade ou testabilidade [@popper2002].
+
+Um modelo de simulação de agentes pode ser uma ferramenta poderosa para explorar e testar teorias em ambientes complexos, mas, por não serem empíricos, eles pertencem ao campo da corroboração, não da confirmação.
+
+Eles podem ser o ponto de partida para investigações mais aprofundadas e para a formulação de novas hipóteses.
+:::
+
+## Tipos de Modelos {.smaller}
+
+:::: {.columns}
+::: {.column style="width: 50%; font-size: 0.85em; padding-top: 0px;"}
+**Modelos abstratos** permitem o exame de **princípios gerais** em detalhe [@rand2007].
+
+**Modelos empíricos** são geralmente mais orientados à **previsão** e frequentemente precisam abordar questões específicas levantadas por formuladores de políticas em locais particulares [@sun2016].
+
+**Modelagem de espectro completo** combina os benefícios de modelos abstratos e empíricos [@rand2007].
+:::
+
+::: {.column style="width: 50%;"}
+![](images/sun-2016-figure-3.png){fig-align="center" style="padding-top: 75px;"}
+:::
+::::
+
+::: footer
+(Ilustração de @sun2016[Figure 3], based on @grimm2005a[Figure 1])
+:::
+
+::: {.notes}
+*Simple* [@sun2016; @rand2007] or *abstract* [@sun2016] models *versus* *photograph* [@parker2003], *empirical*, *complicated* [@sun2016], *elaborated and realistic (ER)* [@rand2007] models.
+
+Simple model example: Schelling's segregation model [@schelling1971].
+
+We call this the ‘Medawar zone’ because Medawar described a similar relation between the difficulty of a scientific problem and its payoff [@grimm2005a].
+:::
+
+## WorldClim {.smaller}
+
+::: {style="padding-top: 0em; padding-bottom: 0em;"}
+
+:::
+
+:::: {.columns}
+::: {.column style="width: 50%; font-size: 0.75em; padding-top: 0px;"}
+![](images/worldclim-logo.png){style="width: 15em;"}
+
+O [WorldClim](https://www.worldclim.org/) 2.1 é um projeto de [Stephen E. Fick](https://orcid.org/0000-0002-3548-6966) e [Robert J. Hijmans](https://orcid.org/0000-0001-5872-2872) que fornece dados climáticos globais de alta resolução, como temperatura e precipitação, podendo ser utilizados para mapeamento e modelagem espacial [@fick2017].
+
+O conjunto de dados inclui séries históricas reduzidas em escala (*downscaled*) do [CRU-TS-4.09](https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.09/), contendo dados interpolados a partir de milhares de estações meteorológicas, além de projeções futuras reduzidas em escala derivadas dos modelos do Coupled Model Intercomparison Project Phase 6 ([CMIP6](https://wcrp-cmip.org/cmip-phases/cmip6/)).
+:::
+::: {.column style="width: 50%;"}
+![](images/vartanian-2024-figure-2.png){fig-align="center" style="width: 80%; padding-top: 0px;"}
+:::
+::::
+
+::: {.notes}
+:::
+
+## WorldClim {.smaller}
+
+:::: {.columns}
+::: {.column style="width: 30%; font-size: 0.9em;"}
+**Dados Climáticos Históricos**
+
+Inclui 12 pontos mensais representando médias de 1970-2000 para temperatura, precipitação, radiação solar, vento, pressão de vapor, altitude e [variáveis bioclimáticas](https://www.worldclim.org/data/bioclim.html).
+:::
+:::: {.column style="width: 5%;"}
+::::
+::: {.column style="width: 30%; font-size: 0.9em;"}
+**Dados Mensais Históricos**
+
+Inclui 12 pontos mensais por ano de 1951 a 2024, com temperatura mínima e máxima e precipitação total, baseados no [CRU-TS-4.09](https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.09/).
+:::
+:::: {.column style="width: 5%;"}
+::::
+::: {.column style="width: 30%; font-size: 0.9em;"}
+**Dados Climáticos Futuros**
+
+Inclui 12 pontos mensais de projeções [CMIP6](https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6) para 2021-2100 (quatro períodos) e quatro cenários [SSPs](https://climatedata.ca/resource/understanding-shared-socio-economic-pathways-ssps/) (126, 245, 370, 585), incluindo temperatura média, máxima, mínima, precipitação e variáveis [variáveis bioclimáticas](https://www.worldclim.org/data/bioclim.html).
+:::
+::::
+
+::: {.notes}
+:::
+
+## LogoClim {.smaller}
+
+![](images/logoclim-logo.png){style="height: 5em;"}
+
+[`LogoClim`](https://github.com/sustentarea/logoclim) é um modelo em [NetLogo](https://www.netlogo.org/) desenvolvido para simular e visualizar condições climáticas globais. Ele permite que pesquisadores integrem dados climáticos de alta resolução em modelos baseados em agentes, apoiando pesquisas reprodutíveis em ecologia, agricultura, ciências ambientais e outras áreas que dependem de dados climáticos.
+
+::: {.notes}
+:::
+
+## LogoClim {.smaller}
+
+![](images/logoclim-interface.gif){fig-align="center" style="width: 100%; padding-top: 0.75em;"}
+
+::: footer
+[@vartanian2025w]
+:::
+
+::: {.notes}
+:::
+
+## Logônia {.smaller}
+
+[![](images/logonia-logo.svg){style="width: 120px;"}](https://github.com/sustentarea/logonia)
+
+[`Logônia`](https://github.com/sustentarea/logonia) é um modelo em [NetLogo](https://www.netlogo.org/) que simula a resposta de crescimento de uma planta fictícia, a logônia, sob diferentes condições climáticas. O modelo utiliza dados climáticos do WorldClim 2.1 e demonstra como integrar o modelo [`LogoClim`](https://github.com/sustentarea/logoclim) por meio da extensão [`LevelSpace`](https://ccl.northwestern.edu/netlogo/docs/ls.html).
+
+![](images/logonia-evolution.svg){fig-align="center" style="width: 70%; padding-top: 0.5em;"}
+
+::: {.notes}
+:::
+
+## Logônia {.smaller}
+
+![](images/logonia-interface.gif){fig-align="center" style="width: 100%; padding-top: 0px; padding-bottom: 0px;"}
+
+::: footer
+[@vartanian2025g]
+:::
+
+::: {.notes}
+:::
+
+## Logônia {.smaller}
+
+![](images/logonia-brazil.png){fig-align="center" style="width: 20%;"}
+
+:::: {.columns}
+::: {.column style="width: 33%;"}
+![](images/logonia-tmin.gif){fig-align="right" style="width: 10em;"}
+:::
+::: {.column style="width: 34%;"}
+![](images/logonia-tmax.gif){fig-align="center" style="width: 10em;"}
+:::
+::: {.column style="width: 33%;"}
+![](images/logonia-prec.gif){fig-align="left" style="width: 10em;"}
+:::
+::::
+
+::: {.notes}
+:::
+
+## Logônia {.smaller}
+
+![](images/logonia-interface-climate-vars.gif){fig-align="center" style="width: 100%; padding-top: 0px; padding-bottom: 0px;"}
+
+::: footer
+[@vartanian2025g]
+:::
+
+::: {.notes}
+:::
+
+## Logônia {.smaller}
+
+:::: {.columns}
+::: {.column .center style="width: 50%; padding-top: 0px;"}
+Energia e Probabilidade de Crescimento
+
+![](images/logistic-regression-sigmoid.png){fig-align="center" style="width: 90%;"}
+:::
+::: {.column style="width: 50%; padding-top: 0px;"}
+Fases de Crescimento
+
+![](images/logonia-shapes.svg){fig-align="center" style="width: 90%;"}
+
+Senescência
+
+![](images/logonia-aging.svg){fig-align="center" style="width: 90%;"}
+:::
+::::
+
+::: footer
+[@vartanian2025g]
+:::
+
+::: {.notes}
+:::
+
+## Logônia {.smaller}
+
+![](images/logonia-interface-1981-09-figure-1.png){fig-align="center" style="width: 100%; padding-top: 0px; padding-bottom: 0px;"}
+
+::: footer
+[@vartanian2025g]
+:::
+
+::: {.notes}
+:::
+
+## Logônia {.smaller}
+
+![](images/logonia-interface-1981-09-figure-2.png){fig-align="center" style="width: 100%; padding-top: 0px; padding-bottom: 0px;"}
+
+::: footer
+[@vartanian2025g]
+:::
+
+::: {.notes}
+:::
+
+## Sindemia Global
+
+:::: {.columns}
+::: {.column style="width: 42.5%; text-align: right; font-size: 2em; margin-top: -30px;"}
+👁️⃤
+:::
+::: {.column style="width: 2.5%; margin-top: -15px;"}
+:::
+::: {.column style="width: 55%; text-align: left; font-size: 0.8em; font-weight: bold; padding-top: 1.25em; margin-top: -15px;"}
+Observer
+:::
+::::
+
+::: {style="padding-top: 5px;"}
+:::
+
+::::: {.columns}
+:::: {.column style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;"}
+Grid Cells
+
+::: {style="font-size: 2.5em;"}
+⊞`<br>`{=html}
+🌡️`<br>`{=html}
+🌧️
+:::
+::::
+:::: {.column style="width: 2.5%;"}
+::::
+:::: {.column style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;"}
+Food
+
+::: {style="font-size: 2.5em;"}
+🍌🍅`<br>`{=html}
+🥬🌾`<br>`{=html}
+🥛🥩
+:::
+::::
+:::: {.column style="width: 2.5%;"}
+::::
+:::: {.column style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;"}
+Families
+
+::: {style="font-size: 2.5em;"}
+👨‍👩‍👧`<br>`{=html}
+👩‍👩‍👦`<br>`{=html}
+👨‍👨‍👧
+:::
+::::
+:::: {.column style="width: 2.5%;"}
+::::
+:::: {.column style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;"}
+Children
+
+::: {style="font-size: 2.5em;"}
+🧒`<br>`{=html}
+👧
+:::
+::::
+:::::
+
+::: {.notes}
+:::
+
+## Como Saber Mais? {.smaller}
+
+:::: {.columns}
+::: {.column style="width: 47.5%;"}
+![](images/wilensky-2015-book-cover.png){fig-align="center" style="width: 100%; padding-top: 15px;"}
+:::
+::: {.column style="width: 5%;"}
+:::
+::: {.column style="width: 47.5%;"}
+![](images/railsback-2019-cover.png){fig-align="center" style="width: 90%;"}
+:::
+::::
+
+::: footer
+(Book cover image from @wickham2023e and @wickham2019)
+:::
+
+::: {.notes}
+:::
+
+## Como Saber Mais? {.smaller}
+
+::::: {.columns}
+:::: {.column style="width: 47.5%; padding-top: 2em;"}
+[![](images/abmstudygroup-logo.png){fig-align="center" style="width: 50%; border-radius: 50%;"}](https://abmstudygroup.org)
+
+::: {style="text-align: center; margin-top: -1em;"}
+[Grupo de Estudos em Modelagem Baseada em Agentes]{style="font-size: 1.5em; font-weight: bold;"}
+:::
+::::
+:::: {.column style="width: 5%;"}
+::::
+:::: {.column style="width: 47.5%;"}
+Reuniões mensais.
+
+Não é necessário experiência prévia.
+::::
+:::::
+
+## Como Saber Mais? {.smaller}
+
+::::: {.columns}
+:::: {.column style="width: 47.5%;"}
+[![](images/simbra-icon.svg){fig-align="center" style="width: 60%; padding-top: 1em;"}](https://simbra.com.br)
+
+::: {style="text-align: center; margin-top: -1.5em; line-height: 1em;"}
+[SIMBRA]{style="font-family: Montserrat; font-size: 2em; font-weight: 900;"}
+
+::: {style="margin-top: -0.5em;"}
+[1.º Simpósio Interdisciplinar Brasileiro`<br>`{=html} de Modelos Baseados em Agentes]{style="font-family: Montserrat; font-size: 0.75em; font-weight: 500;"}
+:::
+:::
+::::
+:::: {.column style="width: 5%;"}
+::::
+:::: {.column style="width: 47.5%; text-align: center; display: inline-block;"}
+**Apoio**
+
+[![](images/sustentarea-logo.svg){.logo style="width: 3em; margin: 0.25em"}](https://www.fsp.usp.br/sustentarea)
+[![](images/inct-logo.svg){.logo style="width: 5em; margin: 0.25em"}](https://www.fsp.usp.br/inct-combate-a-fome)
+[![](images/usp-fsp-logo.png){.logo style="width: 3.5em; margin: 0.25em"}](https://www.fsp.usp.br/)
+[![](images/usp-each-logo.svg){.logo style="width: 5em; margin: 0.25em"}](https://www.each.usp.br/)
+[![](images/usp-iee-logo.png){.logo style="width: 3.5em; margin: 0.25em"}](https://www.each.usp.br/)
+[![](images/usp-mae-levoc-logo.svg){.logo style="width: 5em; margin: 0.25em"}](https://mae.usp.br/levoc/)
+[![](images/usp-logo.svg){.logo style="width: 4em; margin: 0.25em"}](https://www.usp.br/)
+[![](images/ufpi-logo.png){.logo style="width: 7em; margin: 0.25em"}](https://www.ufpi.br/)
+[![](images/resiclima-logo.svg){.logo style="width: 3.5em; margin: 0.25em"}](https://resiclima.com.br/)
+[![](images/qub-logo.svg){.logo style="width: 5em; margin: 0.25em"}](https://www.qub.ac.uk/)
+[![](images/omf-logo.svg){.logo style="width: 5em; margin: 0.25em"}](https://www.openmodelingfoundation.org/)
+[![](images/comses-net-logo.png){.logo style="width: 5em; margin: 0.25em"}](https://www.comses.net/)
+::::
+:::::
+
+## Considerações Finais {.smaller}
+
+[![Licença: GPLv3](images/gplv3-license-badge-pt.svg){style="width: 12%; padding-top: 0px;"}](https://www.gnu.org/licenses/gpl-3.0)
+[![Licença: CC BY 4.0](images/cc-by-nc-sa-4-0-license-badge-pt.svg){style="width: 19%; padding-top: 0px;"}](https://creativecommons.org/licenses/by/4.0/)
+
+Esta apresentação foi criada com o sistema de publicação [Quarto](https://quarto.org/). O código e os materiais estão disponíveis no [GitHub](https://github.com/danielvartan/resiclima-pres-2).
+
+![](images/allison-horst-figure-1.png){fig-align="center" style="width: 80%; padding-top: 50px;"}
+
+::: footer
+(Ilustração de [Allison Horst](https://twitter.com/allison_horst))
+:::
+
+::: {.notes}
+:::
+
+## Referências {.smaller}
+
+::: {style="font-size: 0.75em;"}
+De acordo com o Estilo da American Psychological Association ([APA](https://apastyle.apa.org/)), 7ª edição.
+:::
+
+::: {#refs style="font-size: 0.75em;"}
+:::
+
+::: {.notes}
+:::
+
+## Obrigado! {.nostretch}
+
+![](images/allison-horst-figure-3.png){fig-align="center" style="width: 70%; padding-top: 25px;"}
+
+::: footer
+(Ilustração de [Allison Horst](https://twitter.com/allison_horst))
+:::
+
+::: {.notes}
+:::
+
+## {data-menu-title="QR codes" .nostretch}
+
+:::: {.columns}
+::: {.column style="width: 50%; text-align: center; padding-top: 25px;"}
+[Linktree]{.brand-brown style="font-weight: bold;"}
+
+[![](images/qrcode-linktree.png){fig-align="center" style="width: 80%; padding-top: 0px;"}](https://linktr.ee/danielvartan)
+:::
+::: {.column style="width: 50%; text-align: center; padding-top: 25px;"}
+[Presentation]{.brand-brown style="font-weight: bold;"}
+
+[![](images/qrcode-presentation.png){fig-align="center" style="width: 80%; padding-top: 0px;"}](https://danielvartan.github.io/resiclima-pres-2/)
+:::
+::::
+
+::: {.notes}
+:::

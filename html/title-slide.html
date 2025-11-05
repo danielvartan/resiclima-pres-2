@@ -1,0 +1,23 @@
+<section id="$idprefix$title-slide"$for(title-slide-attributes/pairs)$ $it.key$="$it.value$"$endfor$>
+  <h1 class="title" style="font-size: 2.05em; text-align: left; padding-bottom: 15px;">$title$</h1>
+$if(subtitle)$
+  <p class="subtitle" style="text-align: left; color: white;">$subtitle$</p>
+$endif$
+  <div style="text-align: left; float: left;">
+$for(author)$
+    <p class="author" style="font-size: 0.75em;">$author$</p>
+$endfor$
+$for(institute)$
+    <p class="institute" style="font-size: 0.75em;">$institute$</p>
+$endfor$
+$if(date)$
+    <p class="date" style="font-size: 0.75em;">$date$</p>
+$endif$
+  </div>
+  <div style="display: inline-block; text-align: left; padding-top: 0.6em;">
+    <a href="https://www.fsp.usp.br/sustentarea/" target="_blank"><img src="images/sustentarea-logo.svg" style="width: 2.75em; margin-left: 3em;"></a>
+    <a href="https://resiclima.com.br/" target="_blank"><img src="images/resiclima-logo.svg" style="width: 2.75em; padding-left: 0.5em;"></a>
+    <!-- <a href="https://www5.usp.br" target="_blank"><img src="images/usp-logo.svg" style="width: 3em; padding-left: 0.5em; padding-bottom: 0.6em;"></a> -->
+    <a href="https://fapesp.br" target="_blank"><img src="images/fapesp-logo.svg" style="width: 4.75em; padding-left: 0.5em; padding-bottom: 0.75em;"></a>
+  </div>
+</section>

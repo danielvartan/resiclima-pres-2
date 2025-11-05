@@ -1,0 +1,76 @@
+/*-- scss:defaults --*/
+
+$presentation-title-slide-text-align: left;
+
+$callout-color-note: #006909;
+$callout-color-tip: #006909;
+$callout-color-caution: #B44522;
+$callout-color-warning: #B44522;
+$callout-color-important: #B44522;
+
+/*-- scss:rules --*/
+
+/* Additional Google Fonts ----- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Body ----- */
+
+body {
+  color: $brand-gray;
+}
+
+/* Root ----- */
+
+:root {
+  --r-heading-margin: 0 0 25px 0;
+  --r-selection-background-color: #006909;
+  --r-selection-color: #FFFFFF;
+}
+
+/* Headings ----- */
+
+h2 {
+  margin-bottom: 2rem;
+}
+
+/* Logos ----- */
+
+.logo {
+  display: inline-block;
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+/* Colors ----- */
+
+.brand-green {
+  color: $brand-green;
+}
+
+.brand-red {
+  color: $brand-red;
+}
+
+.brand-brown {
+  color: $brand-brown;
+}
+
+.brand-gray {
+  color: $brand-gray;
+}
+
+/* Controls ----- */
+
+.reveal .controls button {
+  color: $brand-brown;
+}
+
+/* Others ----- */
+
+.bold {
+  font-weight: bold;
+}

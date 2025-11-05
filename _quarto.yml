@@ -1,0 +1,69 @@
+editor: source
+
+execute:
+  cache: false
+  freeze: false
+
+project:
+  type: website
+  output-dir: docs
+  render: [index.qmd]
+  post-render: "R/_post-render.R"
+
+title: "Explorando Efeitos Climáticos com Modelos Baseados em Agentes"
+author: "Daniel Vartanian"
+keyword: >
+  Ciência da Complexidade. Sistemas Complexos. Modelagem Baseada em Agentes.
+  Modelagem Baseada em Indivíduos. LogoClim. Logônia. Mudanças Climáticas.
+  Modelos Conceituais. Modelos Empíricos. Comportamento Emergente.
+  Sistemas Dinâmicos. Sistemas Adaptativos. Auto-organização.
+  Modelagem Computacional. Dinâmica de Sistemas. Interações Micro-Macro.
+  Ciência Generativa. Simulações. NetLogo.
+institute: "Universidade de São Paulo"
+date: 2025-11-07
+date-format: DD/MM/YYYY
+
+website:
+  favicon: images/sustentarea-icon.svg
+  site-url: https://danielvartan.github.io/resiclima-pres-2/
+  repo-url: https://github.com/danielvartan/resiclima-pres-2/
+  issue-url: https://github.com/danielvartan/resiclima-pres-2/issues/
+  open-graph:
+    image: images/og-image.png
+    image-width: 2400
+    image-height: 1600
+    image-alt: Sustentarea Research and Extension Group
+  repo-branch: main
+
+format:
+  revealjs:
+    open-graph: true
+    locale: pt-BR
+    lang: pt-BR
+    code-link: true
+    code-fold: true
+    link-external-newwindow: true
+    tbl-cap-location: top
+    callout-appearance: simple
+    csl: csl/english-apa-author-date.csl
+    preview-links: false
+    controls: true
+    controls-layout: bottom-right
+    auto-stretch: true
+    fig-align: center
+    theme: [default, brand, scss/styles.scss]
+    pdf-max-pages-per-slide: 1
+    template-partials:
+      - html/title-slide.html
+    menu:
+      titleSelector: [h1 h2]
+      useTextContentForMissingTitles: false
+      hideMissingTitles: false
+    include-in-header:
+      text: |
+        <meta property="og:description" content="">
+        <meta property="og:image" content="images/og-image.png">
+        <meta property="og:image:height" content="2400">
+        <meta property="og:image:width" content="1600">
+
+bibliography: references.bib

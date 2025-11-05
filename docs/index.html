@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<link href="./images/sustentarea-icon.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="UTF-8">
+<meta name="generator" content="quarto-1.8.24">
+<meta name="author" content="Daniel Vartanian">
+<meta name="dcterms.date" content="2025-07-11">
+<title>Explorando Efeitos Climáticos com Modelos Baseados em Agentes</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+<style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+<link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-bdf7134ca2e547ec4e6a7dd669242e50.css">
+<link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<meta property="og:description" content="">
+<meta property="og:image" content="images/og-image.png">
+<meta property="og:image:height" content="2400">
+<meta property="og:image:width" content="1600">
+<meta property="og:title" content="Explorando Efeitos Climáticos com Modelos Baseados em Agentes">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="center"><h1 class="title" style="font-size: 2.05em; text-align: left; padding-bottom: 15px;">Explorando Efeitos Climáticos com Modelos Baseados em Agentes</h1>
+  <div style="text-align: left; float: left;">
+    <p class="author" style="font-size: 0.75em;">Daniel Vartanian</p>
+    <p class="institute" style="font-size: 0.75em;">Universidade de São Paulo</p>
+    <p class="date" style="font-size: 0.75em;">07/11/2025</p>
+  </div>
+  <div style="display: inline-block; text-align: left; padding-top: 0.6em;">
+    <a href="https://www.fsp.usp.br/sustentarea/" target="_blank"><img src="images/sustentarea-logo.svg" style="width: 2.75em; margin-left: 3em;"></a>
+    <a href="https://resiclima.com.br/" target="_blank"><img src="images/resiclima-logo.svg" style="width: 2.75em; padding-left: 0.5em;"></a>
+    <!-- <a href="https://www5.usp.br" target="_blank"><img src="images/usp-logo.svg" style="width: 3em; padding-left: 0.5em; padding-bottom: 0.6em;"></a> -->
+    <a href="https://fapesp.br" target="_blank"><img src="images/fapesp-logo.svg" style="width: 4.75em; padding-left: 0.5em; padding-bottom: 0.75em;"></a>
+  </div>
+</section><section id="olá" class="slide level2 smaller"><h2>Olá! 👋</h2>
+<div class="columns">
+<div class="column" style="width: 55%; font-size: 0.75em;">
+<p>Esta apresentação trata sobre o uso de Modelos Baseados em Agentes (ABMs) e mostra como eles representam não apenas uma ferramenta, mas uma <strong>perspectiva interdisciplinar</strong> para a modelagem, permitindo incorporar e estudar os efeitos das mudanças climáticas de forma integrada.</p>
+<div style="padding-top: 15px;">
+<p>Aqui estão os tópicos principais:</p>
+<ol type="1">
+<li><span class="brand-blue"><strong>Modelos Baseados em Agentes</strong></span></li>
+<li><span class="brand-blue"><strong>WorldClim</strong></span></li>
+<li><span class="brand-blue"><strong>LogoClim: WorldClim no NetLogo</strong></span></li>
+<li><span class="brand-blue"><strong>Logônia: Um Exemplo de Aplicação</strong></span></li>
+<li><span class="brand-blue"><strong>Conclusão</strong></span></li>
+</ol>
+</div>
+</div><div class="column" style="width: 45%; text-align: center">
+<p><img data-src="images/yarn-colour.jpg" style="width: 55%;"></p>
+<p><img data-src="images/entangled-threads.jpg" style="width: 65%; margin-top: -25px;"></p>
+</div></div>
+<aside class="notes"><p>II Reunião de Perspectivas Multidisciplinares sobre Mudanças Climáticas</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside><div class="footer">
+<p>(Ilustração de <a href="https://twitter.com/allison_horst">Allison Horst</a>)</p>
+</div>
+<aside class="notes"><p>Venho aqui novamente trazer uma nova perspectiva para lidar com os fenômenos climáticos e suas interações: modelos baseados em agentes.</p>
+<p>Objetivo/Mensagens que precisam ser transmitida:</p>
+<ul>
+<li>Modelos baseados em agentes são uma ferramenta fácil, flexível e realista e intuitiva para se modelar fenômenos complexos.</li>
+<li>ABMs permitem simular as interações e observar as emergências advindas delas.</li>
+<li>Modelos baseados em agentes possibilitam ver e compreender o desenvolvimento de comportamentos ao longo do tempo.</li>
+<li>É uma ótima ferramenta para o desenvolvimento e corroboração de teorias (e.g., psicologia evolutiva, ecologia, ciências sociais).</li>
+<li>Modelos Baseados em Agentes conceituais e empíricos podem ser misturados para adicionar uma camadas complexas a modelos mais simples.</li>
+<li>Modelos Baseados em Agentes empíricos podem ajudar a prever cenários e pontos de alavanca, como nas mudanças climáticas.</li>
+</ul><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="modelos-baseados-em-agentes" class="slide level2 smaller"><h2>Modelos Baseados em Agentes</h2>
+<div class="columns">
+<div class="column" style="width: 47.5%; font-size: 0.725em;">
+<p>Modelos baseados em agentes (ABMs) são <strong>modelos computacionais</strong> usados para simular o comportamento de agentes e suas interações, permitindo estudar <strong>fenômenos emergentes</strong>.</p>
+<p>Em vez de descrever um sistema apenas com variáveis que representam o estado do sistema como um todo (<strong>abordagem global</strong>/de cima pra baixo), modelamos seus agentes individuais (<strong>abordagem local</strong>/de baixo pra cima) <span class="citation" data-cites="railsback2019">(<a href="#/referências" role="doc-biblioref" onclick="">Railsback &amp; Grimm, 2019</a>)</span>.</p>
+<p>Agentes frequentemente representam pessoas ou outros animais, mas <strong>agentes também podem representar qualquer coisa</strong>, desde células biológicas até empresas econômicas ou municípios políticos <span class="citation" data-cites="smaldino2023a">(<a href="#/referências" role="doc-biblioref" onclick="">Smaldino, 2023</a>)</span>.</p>
+</div><div class="column" style="width: 5%;">
+
+</div><div class="column" style="width: 47.5%;">
+<div class="quarto-layout-panel" data-layout-nrow="2" style="padding-top: 25px">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/primer-figure-5.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/primer-2019-figure-01.gif" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<div class="footer">
+<p>(Imagem e vídeo de <a href="https://www.youtube.com/watch?v=YNMkADpvO4w">Primer</a>)</p>
+</div>
+<aside class="notes"><p>Modelos baseados em agentes são uma ferramenta fácil, flexível e realista e intuitiva para se modelar fenômenos complexos.</p>
+<p>ABMs permitem simular as interações e observar as emergências advindas delas.</p>
+<p>Modelos baseados em agentes possibilitam ver e compreender o desenvolvimento de comportamentos ao longo do tempo.</p>
+<p>Diferente de um modelo baseado em equações, que descreve o sistema como um todo, os ABMs se concentram nas interações locais entre os agentes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="exemplos" class="slide level2 smaller"><h2>Exemplos</h2>
+<div class="columns">
+<div class="column" style="width: 50%; font-size: 0.75em;">
+<p><strong>Ecologia</strong><br><a href="https://pt.wikipedia.org/wiki/Equa%C3%A7%C3%A3o_de_Lotka-Volterra">Presa-Predador</a> <span class="citation" data-cites="lotka1925 volterra1926">(<a href="#/referências" role="doc-biblioref" onclick="">Lotka, 1925</a>; <a href="#/referências" role="doc-biblioref" onclick="">Volterra, 1926</a>)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/wilensky-1997-wolf-sheep-predation-model.gif" class="quarto-figure quarto-figure-center" style="width: 90%;"></p>
+</figure>
+</div>
+</div><div class="column" style="width: 50%; font-size: 0.75em;">
+<p><strong>Epidemiologia</strong><br><a href="https://pt.wikipedia.org/wiki/Modelo_epid%C3%AAmico#O_Modelo_SIR">Epidemia (SIR)</a> <span class="citation" data-cites="kermack1927">(<a href="#/referências" role="doc-biblioref" onclick="">Kermack &amp; McKendrick, 1927</a>)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/yang-2011-epidem-basic-model.gif" class="quarto-figure quarto-figure-center" style="width: 90%;"></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+<p>(Modelos de <span class="citation" data-cites="wilensky1997">Wilensky (<a href="#/referências" role="doc-biblioref" onclick="">1997c</a>)</span> e <span class="citation" data-cites="yang2011">Yang &amp; Wilensky (<a href="#/referências" role="doc-biblioref" onclick="">2011</a>)</span>)</p>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="exemplos-1" class="slide level2 smaller"><h2>Exemplos</h2>
+<div class="columns">
+<div class="column" style="width: 50%; font-size: 0.75em;">
+<p><strong>Física<br><a href="https://pt.wikipedia.org/wiki/Figura_de_Chladni">Figuras de Chladni</a></strong> <span class="citation" data-cites="chladni1787">(<a href="#/referências" role="doc-biblioref" onclick="">Chladni, 1787</a>)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/brown-2025-chladni-figures-model.gif" class="quarto-figure quarto-figure-center" style="width: 90%;"></p>
+</figure>
+</div>
+</div><div class="column" style="width: 50%; font-size: 0.75em;">
+<p><strong>Psicologia Evolutiva</strong><br>Altruísmo <span class="citation" data-cites="lehmann2006">(<a href="#/referências" role="doc-biblioref" onclick="">Lehmann &amp; Keller, 2006</a>)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/wilensky-1997-altruism-model.gif" class="quarto-figure quarto-figure-center" style="width: 90%;"></p>
+</figure>
+</div>
+</div></div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside><div class="footer">
+<p>(Modelos de <span class="citation" data-cites="brown2025">Brown et al. (<a href="#/referências" role="doc-biblioref" onclick="">2025</a>)</span> e <span class="citation" data-cites="wilensky1998a">Wilensky (<a href="#/referências" role="doc-biblioref" onclick="">1998b</a>)</span>)</p>
+</div>
+</section><section id="exemplos-2" class="slide level2 smaller"><h2>Exemplos</h2>
+<div class="columns">
+<div class="column" style="width: 50%; font-size: 0.75em;">
+<p><strong>Sociologia</strong><br><a href="https://en.wikipedia.org/wiki/Schelling%27s_model_of_segregation">Segregação</a> <span class="citation" data-cites="schelling1971">(<a href="#/referências" role="doc-biblioref" onclick="">Schelling, 1971</a>)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/wilensky-1997-segregation-model.gif" class="quarto-figure quarto-figure-center" style="width: 90%;"></p>
+</figure>
+</div>
+</div><div class="column" style="width: 50%; font-size: 0.75em;">
+<p><strong>Ciências Ambientais</strong><br><a href="https://pt.wikipedia.org/wiki/Inc%C3%AAndio_de_vegeta%C3%A7%C3%A3o">Incêndios Florestais</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/wilensky-1997-fire-model.gif" class="quarto-figure quarto-figure-center" style="width: 90%;"></p>
+</figure>
+</div>
+</div></div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside><div class="footer">
+<p>(Modelo de <span class="citation" data-cites="wilensky1997a">Wilensky (<a href="#/referências" role="doc-biblioref" onclick="">1997b</a>)</span> e <span class="citation" data-cites="wilensky1997b">Wilensky (<a href="#/referências" role="doc-biblioref" onclick="">1997a</a>)</span>)</p>
+</div>
+</section><section id="exemplos-3" class="slide level2 smaller"><h2>Exemplos</h2>
+<div class="column" style="font-size: 0.75em;">
+<p><a href="https://en.wikipedia.org/wiki/Schelling%27s_model_of_segregation"><strong>Agentes Generativos</strong></a></p>
+</div><img data-src="images/park-2023-generative-agents.gif" class="quarto-figure quarto-figure-center r-stretch" style="width: 100%;"><aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside><div class="footer">
+<p>(Modelo de <span class="citation" data-cites="park2023">Park et al. (<a href="#/referências" role="doc-biblioref" onclick="">2023</a>)</span>)</p>
+</div>
+</section><section id="modelagem-orient.-a-padrões" class="slide level2 smaller"><h2>Modelagem Orient. a Padrões</h2>
+<p><strong>Um padrão é qualquer coisa além da variação aleatória</strong>.</p>
+<p>Podemos pensar em padrões como regularidades, sinais.</p>
+<div class="columns">
+<div class="column center" style="width: 50%; padding-top: 30px;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/national-geographic-2016-clip.gif" class="quarto-figure quarto-figure-center" style="width: 90%;"></p>
+</figure>
+</div>
+</div><div class="column" style="width: 50%; padding-top: 30px;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/wilenski-1998-flocking-model.gif" class="quarto-figure quarto-figure-center" style="width: 90%;"></p>
+</figure>
+</div>
+</div></div>
+<div class="brand-gray" style="font-size: 0.65em; padding-left: 30px; padding-right: 30px; margin-top: -30px">
+<p><strong>Alinhamento</strong>: Um pássaro tende a se mover na mesma direção que os pássaros próximos.</p>
+<p><strong>Separação</strong>: Um pássaro vai se afastar para evitar outro pássaro que se aproxime demais.</p>
+<p><strong>Coesão</strong>: Um pássaro se moverá em direção a outros pássaros próximos (a menos que outro pássaro esteja muito próximo).</p>
+</div>
+<div class="footer">
+<p>(Vídeo de National Geographic | Modelo de <span class="citation" data-cites="wilensky1998">Wilensky (<a href="#/referências" role="doc-biblioref" onclick="">1998a</a>)</span>, baseado em <span class="citation" data-cites="reynolds1987">Reynolds (<a href="#/referências" role="doc-biblioref" onclick="">1987</a>)</span>)</p>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="usos-de-abms" class="slide level2 smaller"><h2>Usos de ABMs</h2>
+<p>Desenvolvimento e <strong>corroboração</strong> de teorias.</p>
+<p><strong>Exploração</strong> de cenários e pontos de alavanca.</p>
+<p><strong>Previsão</strong> de cenários futuros (apenas para modelos empíricos) (e.g., modelos climáticos).</p>
+<div class="brand-red" style="font-weight: bold; text-align: center; padding-top: 2em;">
+<p>Dada às condições da sua teoria ou hipótese, é possível replicar o fenômeno e os padrões por meio de uma simulação de agentes?</p>
+</div>
+<aside class="notes"><p>(…) eles acham que você terminou quando não consegue adicionar mais nada. Eu acho que você terminou quando não consegue tirar mais nada. <span class="citation" data-cites="rutt2020">(<a href="#/referências" role="doc-biblioref" onclick="">Rutt, 2020</a>)</span></p>
+<p>Um bom modelo é simples, válido e robusto <span class="citation" data-cites="sayama2015">(<a href="#/referências" role="doc-biblioref" onclick="">Sayama, 2015</a>)</span>.</p>
+<p><strong>Todos os modelos estão errados</strong>, mas alguns são úteis <span class="citation" data-cites="box1979">(<a href="#/referências" role="doc-biblioref" onclick="">Box, 1979, p. 202</a>)</span>.</p>
+<p>O critério para o status científico de uma teoria é sua falsificabilidade, refutabilidade ou testabilidade <span class="citation" data-cites="popper2002">(<a href="#/referências" role="doc-biblioref" onclick="">Popper, 1963/2002</a>)</span>.</p>
+<p>Um modelo de simulação de agentes pode ser uma ferramenta poderosa para explorar e testar teorias em ambientes complexos, mas, por não serem empíricos, eles pertencem ao campo da corroboração, não da confirmação.</p>
+<p>Eles podem ser o ponto de partida para investigações mais aprofundadas e para a formulação de novas hipóteses.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="tipos-de-modelos" class="slide level2 smaller"><h2>Tipos de Modelos</h2>
+<div class="columns">
+<div class="column" style="width: 50%; font-size: 0.85em; padding-top: 0px;">
+<p><strong>Modelos abstratos</strong> permitem o exame de <strong>princípios gerais</strong> em detalhe <span class="citation" data-cites="rand2007">(<a href="#/referências" role="doc-biblioref" onclick="">Rand &amp; Wilensky, 2007</a>)</span>.</p>
+<p><strong>Modelos empíricos</strong> são geralmente mais orientados à <strong>previsão</strong> e frequentemente precisam abordar questões específicas levantadas por formuladores de políticas em locais particulares <span class="citation" data-cites="sun2016">(<a href="#/referências" role="doc-biblioref" onclick="">Sun et al., 2016</a>)</span>.</p>
+<p><strong>Modelagem de espectro completo</strong> combina os benefícios de modelos abstratos e empíricos <span class="citation" data-cites="rand2007">(<a href="#/referências" role="doc-biblioref" onclick="">Rand &amp; Wilensky, 2007</a>)</span>.</p>
+</div><div class="column" style="width: 50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/sun-2016-figure-3.png" class="quarto-figure quarto-figure-center" style="padding-top: 75px;"></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+<p>(Ilustração de <span class="citation" data-cites="sun2016">Sun et al. (<a href="#/referências" role="doc-biblioref" onclick="">2016</a>, Figure 3)</span>, based on <span class="citation" data-cites="grimm2005a">Grimm et al. (<a href="#/referências" role="doc-biblioref" onclick="">2005</a>, Figure 1)</span>)</p>
+</div>
+<aside class="notes"><p><em>Simple</em> <span class="citation" data-cites="sun2016 rand2007">(<a href="#/referências" role="doc-biblioref" onclick="">Rand &amp; Wilensky, 2007</a>; <a href="#/referências" role="doc-biblioref" onclick="">Sun et al., 2016</a>)</span> or <em>abstract</em> <span class="citation" data-cites="sun2016">(<a href="#/referências" role="doc-biblioref" onclick="">Sun et al., 2016</a>)</span> models <em>versus</em> <em>photograph</em> <span class="citation" data-cites="parker2003">(<a href="#/referências" role="doc-biblioref" onclick="">Parker et al., 2003</a>)</span>, <em>empirical</em>, <em>complicated</em> <span class="citation" data-cites="sun2016">(<a href="#/referências" role="doc-biblioref" onclick="">Sun et al., 2016</a>)</span>, <em>elaborated and realistic (ER)</em> <span class="citation" data-cites="rand2007">(<a href="#/referências" role="doc-biblioref" onclick="">Rand &amp; Wilensky, 2007</a>)</span> models.</p>
+<p>Simple model example: Schelling’s segregation model <span class="citation" data-cites="schelling1971">(<a href="#/referências" role="doc-biblioref" onclick="">Schelling, 1971</a>)</span>.</p>
+<p>We call this the ‘Medawar zone’ because Medawar described a similar relation between the difficulty of a scientific problem and its payoff <span class="citation" data-cites="grimm2005a">(<a href="#/referências" role="doc-biblioref" onclick="">Grimm et al., 2005</a>)</span>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="worldclim" class="slide level2 smaller"><h2>WorldClim</h2>
+<div style="padding-top: 0em; padding-bottom: 0em;">
+
+</div>
+<div class="columns">
+<div class="column" style="width: 50%; font-size: 0.75em; padding-top: 0px;">
+<p><img data-src="images/worldclim-logo.png" style="width: 15em;"></p>
+<p>O <a href="https://www.worldclim.org/">WorldClim</a> 2.1 é um projeto de <a href="https://orcid.org/0000-0002-3548-6966">Stephen E. Fick</a> e <a href="https://orcid.org/0000-0001-5872-2872">Robert J. Hijmans</a> que fornece dados climáticos globais de alta resolução, como temperatura e precipitação, podendo ser utilizados para mapeamento e modelagem espacial <span class="citation" data-cites="fick2017">(<a href="#/referências" role="doc-biblioref" onclick="">Fick &amp; Hijmans, 2017</a>)</span>.</p>
+<p>O conjunto de dados inclui séries históricas reduzidas em escala (<em>downscaled</em>) do <a href="https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.09/">CRU-TS-4.09</a>, contendo dados interpolados a partir de milhares de estações meteorológicas, além de projeções futuras reduzidas em escala derivadas dos modelos do Coupled Model Intercomparison Project Phase 6 (<a href="https://wcrp-cmip.org/cmip-phases/cmip6/">CMIP6</a>).</p>
+</div><div class="column" style="width: 50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/vartanian-2024-figure-2.png" class="quarto-figure quarto-figure-center" style="width: 80%; padding-top: 0px;"></p>
+</figure>
+</div>
+</div></div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="worldclim-1" class="slide level2 smaller"><h2>WorldClim</h2>
+<div class="columns">
+<div class="column" style="width: 30%; font-size: 0.9em;">
+<p><strong>Dados Climáticos Históricos</strong></p>
+<p>Inclui 12 pontos mensais representando médias de 1970-2000 para temperatura, precipitação, radiação solar, vento, pressão de vapor, altitude e <a href="https://www.worldclim.org/data/bioclim.html">variáveis bioclimáticas</a>.</p>
+</div><div class="column" style="width: 5%;">
+
+</div><div class="column" style="width: 30%; font-size: 0.9em;">
+<p><strong>Dados Mensais Históricos</strong></p>
+<p>Inclui 12 pontos mensais por ano de 1951 a 2024, com temperatura mínima e máxima e precipitação total, baseados no <a href="https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.09/">CRU-TS-4.09</a>.</p>
+</div><div class="column" style="width: 5%;">
+
+</div><div class="column" style="width: 30%; font-size: 0.9em;">
+<p><strong>Dados Climáticos Futuros</strong></p>
+<p>Inclui 12 pontos mensais de projeções <a href="https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6">CMIP6</a> para 2021-2100 (quatro períodos) e quatro cenários <a href="https://climatedata.ca/resource/understanding-shared-socio-economic-pathways-ssps/">SSPs</a> (126, 245, 370, 585), incluindo temperatura média, máxima, mínima, precipitação e variáveis <a href="https://www.worldclim.org/data/bioclim.html">variáveis bioclimáticas</a>.</p>
+</div></div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="logoclim" class="slide level2 smaller"><h2>LogoClim</h2>
+<p><img data-src="images/logoclim-logo.png" style="height: 5em;"></p>
+<p><a href="https://github.com/sustentarea/logoclim"><code>LogoClim</code></a> é um modelo em <a href="https://www.netlogo.org/">NetLogo</a> desenvolvido para simular e visualizar condições climáticas globais. Ele permite que pesquisadores integrem dados climáticos de alta resolução em modelos baseados em agentes, apoiando pesquisas reprodutíveis em ecologia, agricultura, ciências ambientais e outras áreas que dependem de dados climáticos.</p>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="logoclim-1" class="slide level2 smaller"><h2>LogoClim</h2>
+
+<img data-src="images/logoclim-interface.gif" class="quarto-figure quarto-figure-center r-stretch" style="width: 100%; padding-top: 0px; padding-bottom: 0px;"><div class="footer">
+<p><span class="citation" data-cites="vartanian2025w">(<a href="#/referências" role="doc-biblioref" onclick="">Vartanian et al., 2025a</a>)</span></p>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="logônia" class="slide level2 smaller"><h2>Logônia</h2>
+<p><a href="https://github.com/sustentarea/logonia"><img data-src="images/logonia-logo.svg" style="width: 120px;"></a></p>
+<p><a href="https://github.com/sustentarea/logonia"><code>Logônia</code></a> é um modelo em <a href="https://www.netlogo.org/">NetLogo</a> que simula a resposta de crescimento de uma planta fictícia, a logônia, sob diferentes condições climáticas. O modelo utiliza dados climáticos do WorldClim 2.1 e demonstra como integrar o modelo <a href="https://github.com/sustentarea/logoclim"><code>LogoClim</code></a> por meio da extensão <a href="https://ccl.northwestern.edu/netlogo/docs/ls.html"><code>LevelSpace</code></a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/logonia-evolution.svg" class="quarto-figure quarto-figure-center" style="width: 70%; padding-top: 0.5em;"></p>
+</figure>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="logônia-1" class="slide level2 smaller"><h2>Logônia</h2>
+
+<img data-src="images/logonia-interface.gif" class="quarto-figure quarto-figure-center r-stretch" style="width: 100%; padding-top: 0px; padding-bottom: 0px;"><div class="footer">
+<p><span class="citation" data-cites="vartanian2025g">(<a href="#/referências" role="doc-biblioref" onclick="">Vartanian et al., 2025b</a>)</span></p>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="logônia-2" class="slide level2 smaller"><h2>Logônia</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/logonia-brazil.png" class="quarto-figure quarto-figure-center" style="width: 20%;"></p>
+</figure>
+</div>
+<div class="columns">
+<div class="column" style="width: 33%;">
+<div class="quarto-figure quarto-figure-right">
+<figure><p><img data-src="images/logonia-tmin.gif" class="quarto-figure quarto-figure-right" style="width: 10em;"></p>
+</figure>
+</div>
+</div><div class="column" style="width: 34%;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/logonia-tmax.gif" class="quarto-figure quarto-figure-center" style="width: 10em;"></p>
+</figure>
+</div>
+</div><div class="column" style="width: 33%;">
+<div class="quarto-figure quarto-figure-left">
+<figure><p><img data-src="images/logonia-prec.gif" class="quarto-figure quarto-figure-left" style="width: 10em;"></p>
+</figure>
+</div>
+</div></div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="logônia-3" class="slide level2 smaller"><h2>Logônia</h2>
+
+<img data-src="images/logonia-interface-climate-vars.gif" class="quarto-figure quarto-figure-center r-stretch" style="width: 100%; padding-top: 0px; padding-bottom: 0px;"><div class="footer">
+<p><span class="citation" data-cites="vartanian2025g">(<a href="#/referências" role="doc-biblioref" onclick="">Vartanian et al., 2025b</a>)</span></p>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="logônia-4" class="slide level2 smaller"><h2>Logônia</h2>
+<div class="columns">
+<div class="column center" style="width: 50%; padding-top: 0px;">
+<p>Energia e Probabilidade de Crescimento</p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/logistic-regression-sigmoid.png" class="quarto-figure quarto-figure-center" style="width: 90%;"></p>
+</figure>
+</div>
+</div><div class="column" style="width: 50%; padding-top: 0px;">
+<p>Fases de Crescimento</p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/logonia-shapes.svg" class="quarto-figure quarto-figure-center" style="width: 90%;"></p>
+</figure>
+</div>
+<p>Senescência</p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/logonia-aging.svg" class="quarto-figure quarto-figure-center" style="width: 90%;"></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+<p><span class="citation" data-cites="vartanian2025g">(<a href="#/referências" role="doc-biblioref" onclick="">Vartanian et al., 2025b</a>)</span></p>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="logônia-5" class="slide level2 smaller"><h2>Logônia</h2>
+
+<img data-src="images/logonia-interface-1981-09-figure-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width: 100%; padding-top: 0px; padding-bottom: 0px;"><div class="footer">
+<p><span class="citation" data-cites="vartanian2025g">(<a href="#/referências" role="doc-biblioref" onclick="">Vartanian et al., 2025b</a>)</span></p>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="logônia-6" class="slide level2 smaller"><h2>Logônia</h2>
+
+<img data-src="images/logonia-interface-1981-09-figure-2.png" class="quarto-figure quarto-figure-center r-stretch" style="width: 100%; padding-top: 0px; padding-bottom: 0px;"><div class="footer">
+<p><span class="citation" data-cites="vartanian2025g">(<a href="#/referências" role="doc-biblioref" onclick="">Vartanian et al., 2025b</a>)</span></p>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="sindemia-global" class="slide level2"><h2>Sindemia Global</h2>
+<div class="columns">
+<div class="column" style="width: 42.5%; text-align: right; font-size: 2em; margin-top: -30px;">
+<p>👁️⃤</p>
+</div><div class="column" style="width: 2.5%; margin-top: -15px;">
+
+</div><div class="column" style="width: 55%; text-align: left; font-size: 0.8em; font-weight: bold; padding-top: 1.25em; margin-top: -15px;">
+<p>Observer</p>
+</div></div>
+<div style="padding-top: 5px;">
+
+</div>
+<div class="columns">
+<div class="column" style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;">
+<p>Grid Cells</p>
+<div style="font-size: 2.5em;">
+<p>⊞<br> 🌡️<br> 🌧️</p>
+</div>
+</div><div class="column" style="width: 2.5%;">
+
+</div><div class="column" style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;">
+<p>Food</p>
+<div style="font-size: 2.5em;">
+<p>🍌🍅<br> 🥬🌾<br> 🥛🥩</p>
+</div>
+</div><div class="column" style="width: 2.5%;">
+
+</div><div class="column" style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;">
+<p>Families</p>
+<div style="font-size: 2.5em;">
+<p>👨‍👩‍👧<br> 👩‍👩‍👦<br> 👨‍👨‍👧</p>
+</div>
+</div><div class="column" style="width: 2.5%;">
+
+</div><div class="column" style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;">
+<p>Children</p>
+<div style="font-size: 2.5em;">
+<p>🧒<br> 👧</p>
+</div>
+</div></div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="como-saber-mais" class="slide level2 smaller"><h2>Como Saber Mais?</h2>
+<div class="columns">
+<div class="column" style="width: 47.5%;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/wilensky-2015-book-cover.png" class="quarto-figure quarto-figure-center" style="width: 100%; padding-top: 15px;"></p>
+</figure>
+</div>
+</div><div class="column" style="width: 5%;">
+
+</div><div class="column" style="width: 47.5%;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/railsback-2019-cover.png" class="quarto-figure quarto-figure-center" style="width: 90%;"></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+<p>(Book cover image from <span class="citation" data-cites="wickham2023e">Wickham et al. (<a href="#/referências" role="doc-biblioref" onclick="">2023</a>)</span> and <span class="citation" data-cites="wickham2019">Wickham (<a href="#/referências" role="doc-biblioref" onclick="">2019</a>)</span>)</p>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="como-saber-mais-1" class="slide level2 smaller"><h2>Como Saber Mais?</h2>
+<div class="columns">
+<div class="column" style="width: 47.5%; padding-top: 2em;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><a href="https://abmstudygroup.org"><img data-src="images/abmstudygroup-logo.png" class="quarto-figure quarto-figure-center" style="width: 50%; border-radius: 50%;"></a></p>
+</figure>
+</div>
+<div style="text-align: center; margin-top: -1em;">
+<p><span style="font-size: 1.5em; font-weight: bold;">Grupo de Estudos em Modelagem Baseada em Agentes</span></p>
+</div>
+</div><div class="column" style="width: 5%;">
+
+</div><div class="column" style="width: 47.5%;">
+<p>Reuniões mensais.</p>
+<p>Não é necessário experiência prévia.</p>
+</div></div>
+</section><section id="como-saber-mais-2" class="slide level2 smaller"><h2>Como Saber Mais?</h2>
+<div class="columns">
+<div class="column" style="width: 47.5%;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><a href="https://simbra.com.br"><img data-src="images/simbra-icon.svg" class="quarto-figure quarto-figure-center" style="width: 60%; padding-top: 1em;"></a></p>
+</figure>
+</div>
+<div style="text-align: center; margin-top: -1.5em; line-height: 1em;">
+<p><span style="font-family: Montserrat; font-size: 2em; font-weight: 900;">SIMBRA</span></p>
+<div style="margin-top: -0.5em;">
+<p><span style="font-family: Montserrat; font-size: 0.75em; font-weight: 500;">1.º Simpósio Interdisciplinar Brasileiro<br> de Modelos Baseados em Agentes</span></p>
+</div>
+</div>
+</div><div class="column" style="width: 5%;">
+
+</div><div class="column" style="width: 47.5%; text-align: center; display: inline-block;">
+<p><strong>Apoio</strong></p>
+<p><a href="https://www.fsp.usp.br/sustentarea"><img data-src="images/sustentarea-logo.svg" class="logo" style="width: 3em; margin: 0.25em"></a> <a href="https://www.fsp.usp.br/inct-combate-a-fome"><img data-src="images/inct-logo.svg" class="logo" style="width: 5em; margin: 0.25em"></a> <a href="https://www.fsp.usp.br/"><img data-src="images/usp-fsp-logo.png" class="logo" style="width: 3.5em; margin: 0.25em"></a> <a href="https://www.each.usp.br/"><img data-src="images/usp-each-logo.svg" class="logo" style="width: 5em; margin: 0.25em"></a> <a href="https://www.each.usp.br/"><img data-src="images/usp-iee-logo.png" class="logo" style="width: 3.5em; margin: 0.25em"></a> <a href="https://mae.usp.br/levoc/"><img data-src="images/usp-mae-levoc-logo.svg" class="logo" style="width: 5em; margin: 0.25em"></a> <a href="https://www.usp.br/"><img data-src="images/usp-logo.svg" class="logo" style="width: 4em; margin: 0.25em"></a> <a href="https://www.ufpi.br/"><img data-src="images/ufpi-logo.png" class="logo" style="width: 7em; margin: 0.25em"></a> <a href="https://resiclima.com.br/"><img data-src="images/resiclima-logo.svg" class="logo" style="width: 3.5em; margin: 0.25em"></a> <a href="https://www.qub.ac.uk/"><img data-src="images/qub-logo.svg" class="logo" style="width: 5em; margin: 0.25em"></a> <a href="https://www.openmodelingfoundation.org/"><img data-src="images/omf-logo.svg" class="logo" style="width: 5em; margin: 0.25em"></a> <a href="https://www.comses.net/"><img data-src="images/comses-net-logo.png" class="logo" style="width: 5em; margin: 0.25em"></a></p>
+</div></div>
+</section><section id="considerações-finais" class="slide level2 smaller"><h2>Considerações Finais</h2>
+<p><a href="https://www.gnu.org/licenses/gpl-3.0"><img data-src="images/gplv3-license-badge-pt.svg" style="width: 12%; padding-top: 0px;" alt="Licença: GPLv3"></a> <a href="https://creativecommons.org/licenses/by/4.0/"><img data-src="images/cc-by-nc-sa-4-0-license-badge-pt.svg" style="width: 19%; padding-top: 0px;" alt="Licença: CC BY 4.0"></a></p>
+<p>Esta apresentação foi criada com o sistema de publicação <a href="https://quarto.org/">Quarto</a>. O código e os materiais estão disponíveis no <a href="https://github.com/danielvartan/resiclima-pres-2">GitHub</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/allison-horst-figure-1.png" class="quarto-figure quarto-figure-center" style="width: 80%; padding-top: 50px;"></p>
+</figure>
+</div>
+<div class="footer">
+<p>(Ilustração de <a href="https://twitter.com/allison_horst">Allison Horst</a>)</p>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="referências" class="slide level2 smaller scrollable"><h2>Referências</h2>
+<div style="font-size: 0.75em;">
+<p>De acordo com o Estilo da American Psychological Association (<a href="https://apastyle.apa.org/">APA</a>), 7ª edição.</p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" style="font-size: 0.75em;" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-box1979" class="csl-entry" role="listitem">
+Box, G. E. P. (1979). Robustness in the strategy of scientific model building. Em R. L. Launer &amp; G. N. Wilkinson (Orgs.), <em>Robustness in statistics</em> (p. 201–236). Academic Press. <a href="https://doi.org/10.1016/B978-0-12-438150-6.50018-2">https://doi.org/10.1016/B978-0-12-438150-6.50018-2</a>
+</div>
+<div id="ref-brown2025" class="csl-entry" role="listitem">
+Brown, I., Kelter, J., &amp; Wilensky, U. (2025). <em><span>NetLogo Chladni</span> figures model</em> [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. <a href="http://ccl.northwestern.edu/netlogo/models/ChladniFigures">http://ccl.northwestern.edu/netlogo/models/ChladniFigures</a>
+</div>
+<div id="ref-chladni1787" class="csl-entry" role="listitem">
+Chladni, E. F. F. (1787). <em>Entdeckungen über die Theorie des Klanges</em>. Zentralantiquariat der Deutschen Demokratischen Republik.
+</div>
+<div id="ref-fick2017" class="csl-entry" role="listitem">
+Fick, S. E., &amp; Hijmans, R. J. (2017). <span>WorldClim</span> 2: <span>New</span> 1-km spatial resolution climate surfaces for global land areas. <em>International Journal of Climatology</em>, <em>37</em>(12), 4302–4315. <a href="https://doi.org/10.1002/joc.5086">https://doi.org/10.1002/joc.5086</a>
+</div>
+<div id="ref-grimm2005a" class="csl-entry" role="listitem">
+Grimm, V., Revilla, E., Berger, U., Jeltsch, F., Mooij, W. M., Railsback, S. F., Thulke, H.-H., Weiner, J., Wiegand, T., &amp; DeAngelis, D. L. (2005). Pattern-oriented modeling of agent-based complex systems: lessons from ecology. <em>Science</em>, <em>310</em>(5750), 987–991. <a href="https://doi.org/10.1126/science.1116681">https://doi.org/10.1126/science.1116681</a>
+</div>
+<div id="ref-kermack1927" class="csl-entry" role="listitem">
+Kermack, W. O., &amp; McKendrick, A. G. (1927). A contribution to the mathematical theory of epidemics. <em>Proceedings of the Royal Society of London. Series A, Containing Papers of a Mathematical and Physical Character</em>, <em>115</em>(772), 700–721. <a href="https://doi.org/10.1098/rspa.1927.0118">https://doi.org/10.1098/rspa.1927.0118</a>
+</div>
+<div id="ref-lehmann2006" class="csl-entry" role="listitem">
+Lehmann, L., &amp; Keller, L. (2006). The evolution of cooperation and altruism – <span>A</span> general framework and a classification of models. <em>Journal of Evolutionary Biology</em>, <em>19</em>(5), 1365–1376. <a href="https://doi.org/10.1111/j.1420-9101.2006.01119.x">https://doi.org/10.1111/j.1420-9101.2006.01119.x</a>
+</div>
+<div id="ref-lotka1925" class="csl-entry" role="listitem">
+Lotka, A. J. (1925). <em>Elements of physical biology</em>. Williams &amp; Wilkins Company. <a href="http://archive.org/details/elementsofphysic017171mbp">http://archive.org/details/elementsofphysic017171mbp</a>
+</div>
+<div id="ref-park2023" class="csl-entry" role="listitem">
+Park, J. S., O’Brien, J., Cai, C. J., Morris, M. R., Liang, P., &amp; Bernstein, M. S. (2023, outubro 29). Generative agents: <span>Interactive</span> simulacra of human behavior. <em>Proceedings of the 36th <span>Annual ACM Symposium</span> on <span>User Interface Software</span> and <span>Technology</span></em>. <a href="https://doi.org/10.1145/3586183.3606763">https://doi.org/10.1145/3586183.3606763</a>
+</div>
+<div id="ref-parker2003" class="csl-entry" role="listitem">
+Parker, D. C., Manson, S. M., Janssen, M. A., Hoffmann, M. J., &amp; Deadman, P. (2003). Multi-agent systems for the simulation of land-use and land-cover change: a review. <em>Annals of the Association of American Geographers</em>, <em>93</em>(2), 314–337. <a href="https://doi.org/10.1111/1467-8306.9302004">https://doi.org/10.1111/1467-8306.9302004</a>
+</div>
+<div id="ref-popper2002" class="csl-entry" role="listitem">
+Popper, K. R. (2002). <em>Conjectures and refutations: <span>The</span> growth of scientific knowledge</em>. Routledge. (Original work published 1963)
+</div>
+<div id="ref-railsback2019" class="csl-entry" role="listitem">
+Railsback, S. F., &amp; Grimm, V. (2019). <em>Agent-based and individual-based modeling: <span>A</span> practical introduction</em> (2º ed). Princeton University Press.
+</div>
+<div id="ref-rand2007" class="csl-entry" role="listitem">
+Rand, W., &amp; Wilensky, U. (2007). Full spectrum modeling: <span>From</span> simplicity to elaboration and realism in urban pattern formation. <em>North <span>American Association</span> for <span>Computational Social</span> and <span>Organizational Sciences</span> (<span>NAACSOS</span>)</em>. <a href="http://ccl.northwestern.edu/2007/FullSpectrum.pdf">http://ccl.northwestern.edu/2007/FullSpectrum.pdf</a>
+</div>
+<div id="ref-reynolds1987" class="csl-entry" role="listitem">
+Reynolds, C. W. (1987). Flocks, herds and schools: <span>A</span> distributed behavioral model. <em>Proceedings of the 14th Annual <span>Conference</span> on <span>Computer Graphics</span> and <span>Interactive Techniques</span></em>, <em>21</em>, 25–34. <a href="https://doi.org/10.1145/37401.37406">https://doi.org/10.1145/37401.37406</a>
+</div>
+<div id="ref-rutt2020" class="csl-entry" role="listitem">
+Rutt, J. (2020, novembro 5). <em>Joshua <span>Epstein</span> on agent-based modeling</em> (90) [Audio recording]. <a href="https://jimruttshow.blubrry.net/joshua-epstein">https://jimruttshow.blubrry.net/joshua-epstein</a>
+</div>
+<div id="ref-sayama2015" class="csl-entry" role="listitem">
+Sayama, H. (2015). <em>Introduction to the modeling and analysis of complex systems</em>. Open SUNY Textbooks.
+</div>
+<div id="ref-schelling1971" class="csl-entry" role="listitem">
+Schelling, T. C. (1971). Dynamic models of segregation. <em>The Journal of Mathematical Sociology</em>, <em>1</em>(2), 143–186. <a href="https://doi.org/10.1080/0022250X.1971.9989794">https://doi.org/10.1080/0022250X.1971.9989794</a>
+</div>
+<div id="ref-smaldino2023a" class="csl-entry" role="listitem">
+Smaldino, P. E. (2023). <em>Modeling social behavior: mathematical and agent-based models of social dynamics and cultural evolution</em>. Princeton University Press.
+</div>
+<div id="ref-sun2016" class="csl-entry" role="listitem">
+Sun, Z., Lorscheid, I., Millington, J. D., Lauf, S., Magliocca, N. R., Groeneveld, J., Balbi, S., Nolzen, H., Müller, B., Schulze, J., &amp; Buchmann, C. M. (2016). Simple or complicated agent-based models? <span>A</span> complicated issue. <em>Environmental Modelling &amp; Software</em>, <em>86</em>, 56–67. <a href="https://doi.org/10.1016/j.envsoft.2016.09.006">https://doi.org/10.1016/j.envsoft.2016.09.006</a>
+</div>
+<div id="ref-vartanian2025w" class="csl-entry" role="listitem">
+Vartanian, D., Garcia, L., &amp; Carvalho, A. M. (2025a). <em><span>LogoClim</span>: <span>WorldClim</span> in <span>NetLogo</span></em> [Software]. <a href="https://doi.org/10.17605/OSF.IO/EAPZU">https://doi.org/10.17605/OSF.IO/EAPZU</a>
+</div>
+<div id="ref-vartanian2025g" class="csl-entry" role="listitem">
+Vartanian, D., Garcia, L., &amp; Carvalho, A. M. (2025b). <em>Logônia: <span>Plant</span> growth response model in <span>NetLogo</span></em> [Software]. <a href="https://doi.org/10.17605/OSF.IO/TPY7S">https://doi.org/10.17605/OSF.IO/TPY7S</a>
+</div>
+<div id="ref-volterra1926" class="csl-entry" role="listitem">
+Volterra, V. (1926). Fluctuations in the abundance of a species considered mathematically. <em>Nature</em>, <em>118</em>(2972), 558–560. <a href="https://doi.org/10.1038/118558a0">https://doi.org/10.1038/118558a0</a>
+</div>
+<div id="ref-wickham2019" class="csl-entry" role="listitem">
+Wickham, H. (2019). <em>Advanced <span>R</span></em> (2º ed). CRC Press. <a href="https://adv-r.hadley.nz">https://adv-r.hadley.nz</a>
+</div>
+<div id="ref-wickham2023e" class="csl-entry" role="listitem">
+Wickham, H., Çetinkaya-Rundel, M., &amp; Grolemund, G. (2023). <em>R for data science: <span>Import</span>, tidy, transform, visualize, and model data</em> (2º ed). O’Reilly Media. <a href="https://r4ds.hadley.nz">https://r4ds.hadley.nz</a>
+</div>
+<div id="ref-wilensky1997b" class="csl-entry" role="listitem">
+Wilensky, U. (1997a). <em><span>NetLogo</span> fire model</em> [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. <a href="http://ccl.northwestern.edu/netlogo/models/Fire">http://ccl.northwestern.edu/netlogo/models/Fire</a>
+</div>
+<div id="ref-wilensky1997a" class="csl-entry" role="listitem">
+Wilensky, U. (1997b). <em><span>NetLogo</span> segregation model</em> [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. <a href="http://ccl.northwestern.edu/netlogo/models/Segregation">http://ccl.northwestern.edu/netlogo/models/Segregation</a>
+</div>
+<div id="ref-wilensky1997" class="csl-entry" role="listitem">
+Wilensky, U. (1997c). <em><span>NetLogo</span> wolf sheep predation model</em> [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. <a href="http://ccl.northwestern.edu/netlogo/models/WolfSheepPredation">http://ccl.northwestern.edu/netlogo/models/WolfSheepPredation</a>
+</div>
+<div id="ref-wilensky1998" class="csl-entry" role="listitem">
+Wilensky, U. (1998a). <em>Flocking model</em> [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. <a href="http://ccl.northwestern.edu/netlogo/models/Flocking">http://ccl.northwestern.edu/netlogo/models/Flocking</a>
+</div>
+<div id="ref-wilensky1998a" class="csl-entry" role="listitem">
+Wilensky, U. (1998b). <em><span>NetLogo</span> altruism model</em> [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. <a href="http://ccl.northwestern.edu/netlogo/models/Altruism">http://ccl.northwestern.edu/netlogo/models/Altruism</a>
+</div>
+<div id="ref-yang2011" class="csl-entry" role="listitem">
+Yang, C., &amp; Wilensky, U. (2011). <em><span>NetLogo epiDEM</span> basic model</em> [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. <a href="http://ccl.northwestern.edu/netlogo/models/epiDEMBasic">http://ccl.northwestern.edu/netlogo/models/epiDEMBasic</a>
+</div>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="obrigado" class="slide level2 nostretch"><h2>Obrigado!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/allison-horst-figure-3.png" class="quarto-figure quarto-figure-center" style="width: 70%; padding-top: 25px;"></p>
+</figure>
+</div>
+<div class="footer">
+<p>(Ilustração de <a href="https://twitter.com/allison_horst">Allison Horst</a>)</p>
+</div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="section" class="slide level2 nostretch" data-menu-title="QR codes"><h2></h2>
+<div class="columns">
+<div class="column" style="width: 50%; text-align: center; padding-top: 25px;">
+<p><span class="brand-brown" style="font-weight: bold;">Linktree</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><a href="https://linktr.ee/danielvartan"><img data-src="images/qrcode-linktree.png" class="quarto-figure quarto-figure-center" style="width: 80%; padding-top: 0px;"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width: 50%; text-align: center; padding-top: 25px;">
+<p><span class="brand-brown" style="font-weight: bold;">Presentation</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><a href="https://danielvartan.github.io/resiclima-pres-2/"><img data-src="images/qrcode-presentation.png" class="quarto-figure quarto-figure-center" style="width: 80%; padding-top: 0px;"></a></p>
+</figure>
+</div>
+</div></div>
+<aside class="notes"><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+</section>
+</div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="site_libs/revealjs/plugin/notes/notes.js"></script><script src="site_libs/revealjs/plugin/search/search.js"></script><script src="site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'pdfMaxPagesPerSlide': 1,
+'menu': {"side":"left","useTextContentForMissingTitles":false,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"titleSelector":["h1 h2"],"hideMissingTitles":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script><script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script><script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiada");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiada");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/danielvartan\.github\.io\/resiclima-pres-2\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+
+
+</body></html>
