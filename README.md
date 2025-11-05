@@ -12,7 +12,7 @@ This repository contains the slides from the presentation _Explorando efeitos cl
 
 The slides are available [here](https://danielvartan.github.io/resiclima-pres-2/).
 
-## How to Use
+## Usage
 
 This presentation was created using the [Quarto](https://quarto.org/) publishing system and the [R](https://www.r-project.org/) programming language. To build the slides locally, you will need to have these tools installed on your computer.
 
@@ -31,7 +31,7 @@ quarto render
 
 This will generate the slides in the `docs` directory.
 
-## How to Cite
+## Citation
 
 To cite this work, please use the following format:
 
