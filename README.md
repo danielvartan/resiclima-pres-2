@@ -73,3 +73,42 @@ PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 this program. If not, see <https://www.gnu.org/licenses/>.
 ```
+
+## Acknowledgments
+
+<table>
+  <tr>
+    <td width="30%">
+      <br/>
+      <br/>
+      <p align="center">
+        <a href="https://www.fsp.usp.br/sustentarea/">
+          <img src="images/sustentarea-logo.svg" width="125"/>
+        </a>
+      </p>
+      <br/>
+    </td>
+    <td width="70%">
+      <p>
+        This work was developed with support from the
+        <a href="https://www.fsp.usp.br/sustentarea/">Sustentarea</a>
+         Research and Extension Center at the University of São Paulo (<a href="https://www5.usp.br/">USP</a>).
+      </p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="30%">
+      <br>
+      <p align="center">
+        <br> <a href="https://fapesp.br/"><img src="images/fapesp-logo.svg" width="160em"/></a>
+      </p>
+      <br>
+    </td>
+    <td width="70%">
+      This study was financed, in part, by the São Paulo Research Foundation (<a href="https://fapesp.br/">FAPESP</a>), Brazil. Process Number <a href="https://bv.fapesp.br/en/bolsas/231507/geospatial-data-science-applied-to-food-policies/">2025/17879-2</a>.
+    </td>
+  </tr>
+</table>
