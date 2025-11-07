@@ -11,16 +11,16 @@ source(here("R", "_setup.R"))
 
 ::::: {.columns}
 :::: {.column style="width: 55%; font-size: 0.75em;"}
-Esta apresentação trata sobre o uso de Modelos Baseados em Agentes (ABMs) e mostra como eles representam não apenas uma ferramenta, mas uma **perspectiva interdisciplinar** para a modelagem de sistemas complexos, permitindo incorporar e estudar os efeitos das mudanças climáticas de forma integrada.
+Esta apresentação trata sobre o uso de Modelos Baseados em Agentes (ABMs) e mostra como eles representam **uma ferramenta capaz de integrar diferentes perspectivas** na modelagem de sistemas complexos e de analisar de forma conjunta os efeitos das mudanças climáticas.
 
 ::: {style="padding-top: 15px;"}
 Aqui estão os tópicos principais:
 
-1. [**Modelos Baseados em Agentes**]{.brand-blue}
-1. [**WorldClim**]{.brand-blue}
-1. [**LogoClim: WorldClim no NetLogo**]{.brand-blue}
-1. [**Logônia: Um Exemplo de Aplicação**]{.brand-blue}
-1. [**Conclusão**]{.brand-blue}
+1. **Modelos Baseados em Agentes**
+1. **LogoClim: WorldClim no NetLogo**
+1. **Logônia: Um Exemplo de Aplicação**
+1. **Sindemia Global**
+1. **Conclusão**
 :::
 ::::
 :::: {.column style="width: 45%; text-align: center"}
@@ -72,11 +72,13 @@ Agentes frequentemente representam pessoas ou outros animais, mas **agentes tamb
 ## NetLogo {.smaller}
 
 :::: {.columns}
-::: {.column .center style="width: 50%; padding-top: 0px;"}
+::: {.column .center style="width: 55%; padding-top: 0px;"}
 ![](images/mit-papert-figure-4.jpg){fig-align="center" style="width: 100%;"}
+
+[![](images/netlogo-logo.png){fig-align="center" style="width: 80%; margin-top: -1em"}](https://www.netlogo.org/)
 :::
-::: {.column style="width: 50%; padding-top: 0px;"}
-![](images/netlogo-code-figure-1.png){fig-align="center" style="width: 80%;"}
+::: {.column style="width: 45%; padding-top: 0px;"}
+![](images/netlogo-code-figure-1.png){fig-align="center" style="width: 90%;"}
 :::
 ::::
 
@@ -212,7 +214,7 @@ Dada às condições da sua teoria ou hipótese, é possível [replicar]{.brand-
 :::
 
 ::: {style="font-size: 0.85em;"}
-(...) eles acham que você terminou quando não consegue adicionar mais nada. Eu acho que você terminou quando não consegue tirar mais nada. [Joshua Epstein, @rutt2020]
+(...) eles acham que você terminou quando não consegue adicionar mais nada. Eu acho que você terminou quando não consegue tirar mais nada. (Joshua Epstein) [@rutt2020]
 
 Uma teoria que não pode ser refutada por nenhum evento concebível não é científica. A irrefutabilidade não é uma virtude de uma teoria (como muitos pensam), mas um vício. [@popper2002]
 :::
@@ -237,7 +239,7 @@ Uma teoria que não pode ser refutada por nenhum evento concebível não é cien
 ::::
 
 ::: footer
-(Ilustração de @sun2016[Figure 3], based on @grimm2005a[Figure 1])
+(Ilustração de @sun2016[Figure 3], baseada em @grimm2005a[Figure 1])
 :::
 
 ::: {.notes}
@@ -257,11 +259,7 @@ We call this the ‘Medawar zone’ because Medawar described a similar relation
 ::: {.notes}
 :::
 
-## WorldClim {.smaller}
-
-::: {style="padding-top: 0em; padding-bottom: 0em;"}
-
-:::
+## LogoClim {.smaller}
 
 :::: {.columns}
 ::: {.column style="width: 50%; font-size: 0.75em; padding-top: 0px;"}
@@ -467,7 +465,7 @@ Children
 ::::
 
 ::: footer
-(Book cover image from @wickham2023e and @wickham2019)
+(Capa do livro de @wilensky2015 e @railsback2019)
 :::
 
 ::: {.notes}
@@ -480,7 +478,7 @@ Children
 [![](images/abmstudygroup-logo.png){fig-align="center" style="width: 50%; border-radius: 50%;"}](https://abmstudygroup.org)
 
 ::: {style="text-align: center; margin-top: -1em;"}
-[Grupo de Estudos em Modelagem Baseada em Agentes]{style="font-size: 1em; font-weight: bold;"}
+[Grupo de Estudos de Modelagem Baseada em Agentes]{style="font-size: 1em; font-weight: bold;"}
 :::
 ::::
 :::: {.column style="width: 5%;"}
@@ -489,7 +487,7 @@ Children
 [![](images/logolink-logo.svg){fig-align="center" style="width: 50%;"}](https://danielvartan.github.io/logolink)
 
 ::: {style="text-align: center; margin-top: -1em;"}
-[`logolink`: An Interface for Running NetLogo Simulations from R]{style="font-size: 1em; font-weight: bold;"}
+[`logolink`: Uma Interface para Executar Simulações do NetLogo a Partir do R]{style="font-size: 1em; font-weight: bold;"}
 :::
 ::::
 :::::
