@@ -3,12 +3,12 @@
 <!-- badges: start -->
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![License: GPLv3](https://img.shields.io/badge/license-GPLv3-bd0000.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![License: CC BY 4.0](https://img.shields.io/badge/license-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 <!-- badges: end -->
 
 ## Overview
 
-This repository contains the slides from the presentation _Explorando efeitos climáticos com modelos baseados em agentes_, delivered on November 07, 2025, at the [2nd Meeting on Multidisciplinary Perspectives on Climate Change](https://resiclima.com.br/15/10/2025/recife-recebe-encontro-multidisciplinar-sobre-mudancas-climaticas/) of the [Resiclima Network](https://resiclima.com.br).
+This repository contains the slides from the presentation _Explorando efeitos climáticos com modelos baseados em agentes_ ([`pt-BR`](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)), delivered on November 7, 2025, at the [2nd Meeting on Multidisciplinary Perspectives on Climate Change](https://resiclima.com.br/15/10/2025/recife-recebe-encontro-multidisciplinar-sobre-mudancas-climaticas/) of the [Resiclima Network](https://resiclima.com.br).
 
 The slides are available [here](https://danielvartan.github.io/resiclima-pres-2/).
 
@@ -46,7 +46,7 @@ A BibLaTeX entry for LaTeX users is:
   author = {{Daniel Vartanian}},
   year = {2025},
   url = {https://danielvartan.github.io/resiclima-pres-2},
-  langid = {en},
+  langid = {pt-BR},
   note = {Presentation}
 }
 ```
@@ -54,9 +54,9 @@ A BibLaTeX entry for LaTeX users is:
 ## License
 
 [![License: GPLv3](https://img.shields.io/badge/license-GPLv3-bd0000.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-The code in this repository is licensed under the [GNU General Public License Version 3](https://www.gnu.org/licenses/gpl-3.0), while the presentation is available under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+The code in this repository is licensed under the [GNU General Public License Version 3](https://www.gnu.org/licenses/gpl-3.0), while the presentation is available under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ``` text
 Copyright (C) 2025 Daniel Vartanian
@@ -92,7 +92,29 @@ this program. If not, see <https://www.gnu.org/licenses/>.
       <p>
         This work was developed with support from the
         <a href="https://www.fsp.usp.br/sustentarea/">Sustentarea</a>
-         Research and Extension Center at the University of São Paulo (<a href="https://www5.usp.br/">USP</a>).
+        Research and Extension Center at the University of São Paulo (<a href="https://www5.usp.br/">USP</a>).
+      </p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="30%">
+      <br/>
+      <br/>
+      <p align="center">
+        <a href="https://www.fsp.usp.br/sustentarea/">
+          <img src="images/resiclima-logo.svg" width="125"/>
+        </a>
+      </p>
+      <br/>
+    </td>
+    <td width="70%">
+      <p>
+        This work was developed with support from the
+        <a href="https://resiclima.com.br/">Resiclima Network</a>
+        , an international collaboration for the multidimensional and interdisciplinary study of global climate change.
       </p>
     </td>
   </tr>

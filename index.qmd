@@ -9,6 +9,20 @@ library(here)
 source(here("R", "_setup.R"))
 ```
 
+::: {.notes}
+- 30m: 10-15 slides (máximo), sem contar com slides secundários.
+- Adicionar modelos empíricos nos exemplos.
+- Apresentação para a II Reunião de Perspectivas Multidisciplinares sobre Mudanças Climáticas da Rede Resiclima.
+
+Mensagens que precisam ser transmitidas:
+
+- Modelos baseados em agentes (ABMs) são uma ferramenta fácil, flexível, realista e intuitiva para se modelar fenômenos complexos.
+- ABMs permitem simular as interações e observar as emergências advindas delas.
+- Modelos baseados em agentes possibilitam ver e compreender o desenvolvimento de comportamentos ao longo do tempo.
+- É uma ótima ferramenta para o desenvolvimento e corroboração de teorias (e.g., psicologia evolutiva, ecologia, ciências sociais).
+- Modelos Baseados em Agentes conceituais e empíricos podem ser misturados para adicionar camadas a modelos mais simples.
+:::
+
 ::::: {.columns}
 :::: {.column style="width: 55%; font-size: 0.75em;"}
 Esta apresentação trata sobre o uso de Modelos Baseados em Agentes (ABMs) e mostra como eles representam **uma ferramenta capaz de integrar diferentes perspectivas** na modelagem de sistemas complexos e de analisar de forma conjunta os efeitos das mudanças climáticas.
@@ -30,10 +44,6 @@ Aqui estão os tópicos principais:
 ::::
 :::::
 
-::: {.notes}
-II Reunião de Perspectivas Multidisciplinares sobre Mudanças Climáticas
-:::
-
 ::: footer
 (Ilustração de [Allison Horst](https://twitter.com/allison_horst))
 :::
@@ -47,9 +57,9 @@ II Reunião de Perspectivas Multidisciplinares sobre Mudanças Climáticas
 :::: {.column style="width: 47.5%; font-size: 0.725em;"}
 Modelos baseados em agentes (ABMs) são **modelos computacionais** usados para simular o comportamento de agentes e suas interações, permitindo estudar **fenômenos emergentes**.
 
-Em vez de descrever um sistema apenas com variáveis que representam o estado do sistema como um todo (**abordagem global**/de cima pra baixo), modelamos seus agentes individuais (**abordagem local**/de baixo pra cima) [@railsback2019].
+Em vez de descrever um sistema apenas com variáveis que representam o estado do sistema como um todo (**abordagem global**/de cima pra baixo), modelamos apenas seus agentes e suas interações (**abordagem local**/de baixo pra cima) [@railsback2019].
 
-Agentes frequentemente representam pessoas ou outros animais, mas **agentes também podem representar qualquer coisa**, desde células biológicas até empresas econômicas ou municípios políticos [@smaldino2023a].
+Agentes frequentemente representam pessoas ou outros animais, mas **podem representar qualquer coisa**, desde células até empresas ou municípios [@smaldino2023a].
 :::
 :::: {.column style="width: 5%;"}
 ::::
@@ -67,6 +77,8 @@ Agentes frequentemente representam pessoas ou outros animais, mas **agentes tamb
 :::
 
 ::: {.notes}
+- Eu não consigo estudar um formigueiro estudando somente a formiga, pois um formigueiro só existe por meio da interação de várias formigas.
+- Eu não consigo estudar uma sociedade estudando somente o ser humano, porque esse organismo não evoluiu, não se desenvolveu, no vácuo. E de certa forma, eu não consigo estudar o ser humano sem a sociedade, pois os comportamentos que aquele ser humano manifesta se deu e se dá por meio desse contexto e da história desse contexto.
 :::
 
 ## NetLogo {.smaller}
@@ -105,7 +117,7 @@ Podemos pensar em padrões como regularidades, sinais.
 ::::
 
 ::: {style="font-size: 0.65em; padding-left: 30px; padding-right: 30px; margin-top: -30px" .brand-gray}
-**Alinhamento**: Um pássaro tende a se mover na mesma direção que os pássaros próximos.
+**Alinhamento**: Um pássaro tende a se alinhar na mesma direção que os pássaros próximos.
 
 **Separação**: Um pássaro vai se afastar para evitar outro pássaro que se aproxime demais.
 
@@ -183,7 +195,7 @@ Podemos pensar em padrões como regularidades, sinais.
 :::
 
 ::: footer
-(Modelo de @wilensky1997a e @wilensky1997b)
+(Modelos de @wilensky1997a e @wilensky1997b)
 :::
 
 ## Exemplos {.smaller }
@@ -210,16 +222,18 @@ Desenvolvimento e **corroboração** de teorias.
 **Previsão** de cenários futuros (apenas para modelos empíricos)
 
 ::: {.brand-red style="font-weight: bold; text-align: center; padding-top: 1em; padding-bottom: 1em;"}
-Dada às condições da sua teoria ou hipótese, é possível [replicar]{.brand-green} o fenômeno e seus padrões por meio de uma simulação de agentes?
+Dada as condições da sua teoria, é possível [replicar]{.brand-green} o fenômeno e seus padrões por meio de uma simulação de agentes?
 :::
 
 ::: {style="font-size: 0.85em;"}
-(...) eles acham que você terminou quando não consegue adicionar mais nada. Eu acho que você terminou quando não consegue tirar mais nada. (Joshua Epstein) [@rutt2020]
+\[...\] eles acham que você terminou quando não consegue adicionar mais nada. Eu acho que você terminou quando não consegue tirar mais nada. (Joshua Epstein) [@rutt2020]
 
 Uma teoria que não pode ser refutada por nenhum evento concebível não é científica. A irrefutabilidade não é uma virtude de uma teoria (como muitos pensam), mas um vício. [@popper2002]
 :::
 
 ::: {.notes}
+- Nem sempre se chega a todas as variáveis, mas isso não é o importante para um modelo. O importante é conseguir replicar o que leva aquele fenômeno, não suas nuâncias. As nuâncias são importantes, mas quando pensamos em efeitos macro, estamos a busca da estrutura, não da exceção.
+- Limitações epistemológicas.
 :::
 
 ## Tipos de Modelos {.smaller}
@@ -230,7 +244,7 @@ Uma teoria que não pode ser refutada por nenhum evento concebível não é cien
 
 **Modelos empíricos** são geralmente mais orientados à **previsão** e frequentemente precisam abordar questões específicas levantadas por formuladores de políticas em locais particulares [@sun2016].
 
-**Modelagem de espectro completo** combina os benefícios de modelos abstratos e empíricos [@rand2007].
+A **modelagem de espectro completo** combina os benefícios de modelos abstratos e empíricos [@rand2007].
 :::
 
 ::: {.column style="width: 50%;"}
@@ -239,7 +253,7 @@ Uma teoria que não pode ser refutada por nenhum evento concebível não é cien
 ::::
 
 ::: footer
-(Ilustração de @sun2016[Figure 3], baseada em @grimm2005a[Figure 1])
+(Ilustração de @sun2016[Figure 3], baseada em @grimm2005[Figure 1])
 :::
 
 ::: {.notes}
@@ -247,7 +261,7 @@ Uma teoria que não pode ser refutada por nenhum evento concebível não é cien
 
 Simple model example: Schelling's segregation model [@schelling1971].
 
-We call this the ‘Medawar zone’ because Medawar described a similar relation between the difficulty of a scientific problem and its payoff [@grimm2005a].
+We call this the ‘Medawar zone’ because Medawar described a similar relation between the difficulty of a scientific problem and its payoff [@grimm2005].
 :::
 
 ## LogoClim {.smaller}
@@ -397,7 +411,7 @@ Senescência
 ::: {.column style="width: 2.5%; margin-top: -15px;"}
 :::
 ::: {.column style="width: 55%; text-align: left; font-size: 0.8em; font-weight: bold; padding-top: 1.25em; margin-top: -15px;"}
-Observer
+Observador
 :::
 ::::
 
@@ -406,7 +420,7 @@ Observer
 
 ::::: {.columns}
 :::: {.column style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;"}
-Grid Cells
+Células
 
 ::: {style="font-size: 2.5em;"}
 ⊞`<br>`{=html}
@@ -417,7 +431,7 @@ Grid Cells
 :::: {.column style="width: 2.5%;"}
 ::::
 :::: {.column style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;"}
-Food
+Alimentos
 
 ::: {style="font-size: 2.5em;"}
 🍌🍅`<br>`{=html}
@@ -428,7 +442,7 @@ Food
 :::: {.column style="width: 2.5%;"}
 ::::
 :::: {.column style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;"}
-Families
+Famílias
 
 ::: {style="font-size: 2.5em;"}
 👨‍👩‍👧`<br>`{=html}
@@ -439,7 +453,7 @@ Families
 :::: {.column style="width: 2.5%;"}
 ::::
 :::: {.column style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;"}
-Children
+Crianças
 
 ::: {style="font-size: 2.5em;"}
 🧒`<br>`{=html}
@@ -492,6 +506,11 @@ Children
 ::::
 :::::
 
+::: {.notes}
+- Falar sobre a diversidade dos membros do grupo (e.g., antropologia, arqueologia, sociologia, ciência da computação, nutrição).
+- Falar sobre o encontro de 1 ano do grupo.
+:::
+
 ## Como Saber Mais? {.smaller}
 
 ::::: {.columns}
@@ -522,9 +541,12 @@ Children
 [![](images/resiclima-logo.svg){.logo style="width: 3em; margin: 0.25em"}](https://resiclima.com.br/)
 [![](images/qub-logo.svg){.logo style="width: 5.5em; margin: 0.25em"}](https://www.qub.ac.uk/)
 [![](images/omf-logo.svg){.logo style="width: 4.5em; margin: 0.25em"}](https://www.openmodelingfoundation.org/)
-[![](images/comses-net-logo.png){.logo style="width: 7em; margin: 0.25em"}](https://www.comses.net/)
+[![](images/comses-net-logo.png){.logo style="width: 6.5em; margin: 0.25em"}](https://www.comses.net/)
 ::::
 :::::
+
+::: {.notes}
+:::
 
 ## Considerações Finais {.smaller}
 
