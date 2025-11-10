@@ -8,9 +8,11 @@
 
 ## Overview
 
-This repository contains the slides from the presentation _Explorando efeitos climáticos com modelos baseados em agentes_ ([`pt-BR`](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)), delivered on November 7, 2025, at the [2nd Meeting on Multidisciplinary Perspectives on Climate Change](https://resiclima.com.br/15/10/2025/recife-recebe-encontro-multidisciplinar-sobre-mudancas-climaticas/) of the [Resiclima Network](https://resiclima.com.br).
+This repository contains the slides from the presentation _Explorando efeitos climáticos com modelos baseados em agentes_ ([`pt-BR`](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)), delivered on November 7, 2025, at the [2nd Meeting on Multidisciplinary Perspectives on Climate Change](https://resiclima.com.br/15/10/2025/recife-recebe-encontro-multidisciplinar-sobre-mudancas-climaticas/) organized by the [Resiclima Network](https://resiclima.com.br).
 
 The slides are available [here](https://danielvartan.github.io/resiclima-pres-2/).
+
+A recording of the presentation, recorded on November 9, 2025, is available [here](https://youtu.be/vZYVYngFVzc).
 
 ## Usage
 
@@ -113,8 +115,8 @@ this program. If not, see <https://www.gnu.org/licenses/>.
     <td width="70%">
       <p>
         This work was developed with support from the
-        <a href="https://resiclima.com.br/">Resiclima Network</a>
-        , an international collaboration for the multidimensional and interdisciplinary study of global climate change.
+        <a href="https://resiclima.com.br/">Resiclima Network</a>,
+        an international collaboration for the multidimensional and interdisciplinary study of global climate change.
       </p>
     </td>
   </tr>
