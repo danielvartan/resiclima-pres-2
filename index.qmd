@@ -45,10 +45,6 @@ Aqui estão os tópicos principais:
 ::::
 :::::
 
-::: footer
-(Ilustração de [Allison Horst](https://twitter.com/allison_horst))
-:::
-
 ::: {.notes}
 :::
 
@@ -113,7 +109,7 @@ Podemos pensar em padrões como regularidades, sinais.
 ![](images/national-geographic-2016-clip.gif){fig-align="center" style="width: 90%;"}
 :::
 ::: {.column style="width: 50%; padding-top: 30px;"}
-![](images/wilenski-1998-flocking-model.gif){fig-align="center" style="width: 90%;"}
+![](images/wilensky-1998-flocking-model.gif){fig-align="center" style="width: 90%;"}
 :::
 ::::
 
@@ -220,7 +216,7 @@ Desenvolvimento e **corroboração** de teorias.
 
 **Exploração** de cenários e pontos de alavanca.
 
-**Previsão** de cenários futuros (apenas para modelos empíricos)
+**Previsão** de cenários futuros (apenas para modelos empíricos).
 
 ::: {.brand-red style="font-weight: bold; text-align: center; padding-top: 1em; padding-bottom: 1em;"}
 Dada as condições da sua teoria, é possível [replicar]{.brand-green} o fenômeno e seus padrões por meio de uma simulação de agentes?
