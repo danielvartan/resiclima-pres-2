@@ -5,6 +5,7 @@
 #| include: false
 
 library(here)
+library(rutils) # github.com/danielvartan/rutils
 
 source(here("R", "_setup.R"))
 ```
@@ -588,6 +589,28 @@ De acordo com o Estilo da American Psychological Association ([APA](https://apas
 :::
 
 ## {data-menu-title="QR codes" .nostretch}
+
+```{r}
+#| include: false
+
+qr_code(
+  link = "https://linktr.ee/danielvartan",
+  file = here("images", "qrcode-linktree.png"),
+  logo = here("images", "linktree-icon.svg"),
+  frame = here("images", "qrcode-frame.svg")
+)
+```
+
+```{r}
+#| include: false
+
+qr_code(
+  link = "https://danielvartan.github.io/resiclima-pres-2/",
+  file = here("images", "qrcode-presentation.png"),
+  logo = here("images", "github-icon.svg"),
+  frame = here("images", "qrcode-frame.svg")
+)
+```
 
 :::: {.columns}
 ::: {.column style="width: 50%; text-align: center; padding-top: 20px;"}
