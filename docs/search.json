@@ -1,198 +1,191 @@
 [
   {
-    "objectID": "index.html#olá",
-    "href": "index.html#olá",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Olá! 👋",
-    "text": "Olá! 👋\n\n30m: 10-15 slides (máximo), sem contar com slides secundários.\nAdicionar modelos empíricos nos exemplos.\nApresentação para a II Reunião de Perspectivas Multidisciplinares sobre Mudanças Climáticas da Rede Resiclima.\n\nMensagens que precisam ser transmitidas:\n\nModelos baseados em agentes (ABMs) são uma ferramenta fácil, flexível, realista e intuitiva para se modelar fenômenos complexos.\nABMs permitem simular as interações e observar as emergências advindas delas.\nModelos baseados em agentes possibilitam ver e compreender o desenvolvimento de comportamentos ao longo do tempo.\nÉ uma ótima ferramenta para o desenvolvimento e corroboração de teorias (e.g., psicologia evolutiva, ecologia, ciências sociais).\nModelos Baseados em Agentes conceituais e empíricos podem ser misturados para adicionar camadas a modelos mais simples.\n\n\nEsta apresentação trata sobre o uso de Modelos Baseados em Agentes (ABMs) e mostra como eles representam uma ferramenta capaz de integrar diferentes perspectivas na modelagem de sistemas complexos e de analisar de forma conjunta os efeitos das mudanças climáticas.\n\nAqui estão os tópicos principais:\n\nModelos Baseados em Agentes\nLogoClim: WorldClim no NetLogo\nLogônia: Um Exemplo de Aplicação\nSindemia Global\nConclusão"
+    "objectID": "index.html#hi-there",
+    "href": "index.html#hi-there",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Hi there! 👋",
+    "text": "Hi there! 👋\n\n\nThis presentation explores how Agent-Based Models (ABMs) can integrate multiple perspectives in modeling complex systems and function as a tool for analyzing the combined impacts of climate change.\n\nHere are the main topics:\n\nAgent-Based Models\nLogoClim: WorldClim in NetLogo\nLogônia: An Example Application\nGlobal Syndemic\nConclusion"
   },
   {
-    "objectID": "index.html#modelos-baseados-em-agentes",
-    "href": "index.html#modelos-baseados-em-agentes",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Modelos Baseados em Agentes",
-    "text": "Modelos Baseados em Agentes\n\n\nModelos baseados em agentes (ABMs) são modelos computacionais usados para simular o comportamento de agentes e suas interações, permitindo estudar fenômenos emergentes.\nEm vez de descrever um sistema apenas com variáveis que representam o estado do sistema como um todo (abordagem global/de cima pra baixo), modelamos apenas seus agentes e suas interações (abordagem local/de baixo pra cima) (Railsback & Grimm, 2019).\nAgentes frequentemente representam pessoas ou outros animais, mas podem representar qualquer coisa, desde células até empresas ou municípios (Smaldino, 2023).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Imagem e vídeo de Primer)\n\n\nEu não consigo estudar um formigueiro estudando somente a formiga, pois um formigueiro só existe por meio da interação de várias formigas.\nEu não consigo estudar uma sociedade estudando somente o ser humano, porque esse organismo não evoluiu, não se desenvolveu, no vácuo. E de certa forma, eu não consigo estudar o ser humano sem a sociedade, pois os comportamentos que aquele ser humano manifesta se deu e se dá por meio desse contexto e da história desse contexto."
+    "objectID": "index.html#agent-based-models",
+    "href": "index.html#agent-based-models",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Agent-Based Models",
+    "text": "Agent-Based Models\n\n\nAgent-based models (ABMs) are computational models with the purpose of simulating the behavior of agents and their interactions, allowing us to study emergent phenomena.\nInstead of describing a system only with variables representing the state of the whole system (a global approach/top-down), we model its individual agents (a local approach/bottom-up) (Railsback & Grimm, 2019).\nAgents often represent people or other animals, but agents can also represent anything from biological cells to economic firms to political municipalities (Smaldino, 2023).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Image and video by Primer)"
   },
   {
     "objectID": "index.html#netlogo",
     "href": "index.html#netlogo",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
+    "title": "Exploring Climate Effects with Agent-Based Models",
     "section": "NetLogo",
-    "text": "NetLogo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Foto de MIT Museum)"
+    "text": "NetLogo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Photo by the MIT Museum)"
   },
   {
-    "objectID": "index.html#modelagem-orient.-a-padrões",
-    "href": "index.html#modelagem-orient.-a-padrões",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Modelagem Orient. a Padrões",
-    "text": "Modelagem Orient. a Padrões\nUm padrão é qualquer coisa além da variação aleatória.\nPodemos pensar em padrões como regularidades, sinais.\n\n\n\n\n\n\n\n\n\n\n\n\n\nAlinhamento: Um pássaro tende a se alinhar na mesma direção que os pássaros próximos.\nSeparação: Um pássaro vai se afastar para evitar outro pássaro que se aproxime demais.\nCoesão: Um pássaro se moverá em direção a outros pássaros próximos (a menos que outro pássaro esteja muito próximo).\n\n\n(Vídeo de National Geographic | Modelo de Wilensky (1998a), baseado em Reynolds (1987))"
+    "objectID": "index.html#pattern-oriented-modeling",
+    "href": "index.html#pattern-oriented-modeling",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Pattern-Oriented Modeling",
+    "text": "Pattern-Oriented Modeling\nA pattern is anything beyond random variation.\nWe can think of patterns as regularities, signals.\n\n\n\n\n\n\n\n\n\n\n\n\n\nAlignment: A bird tends to turn so that it is moving in the same direction that nearby birds are moving.\nSeparation: A bird will turn to avoid another bird which gets too close.\nCohesion: A bird will move towards other nearby birds (unless another bird is too close).\n\n\n(Video by National Geographic | Flocking model by Wilensky (1998b), based on Reynolds (1987))"
   },
   {
-    "objectID": "index.html#exemplos",
-    "href": "index.html#exemplos",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Exemplos",
-    "text": "Exemplos\n\n\nEcologiaPresa-Predador (Lotka, 1925; Volterra, 1926)\n\n\n\n\n\nEpidemiologiaEpidemia (SIR) (Kermack & McKendrick, 1927)\n\n\n\n\n\n\n(Modelos de Wilensky (1997c) e Yang & Wilensky (2011))"
+    "objectID": "index.html#examples",
+    "href": "index.html#examples",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Examples",
+    "text": "Examples\n\n\nEcologyPredator-Prey (Lotka, 1925; Volterra, 1926)\n\n\n\n\n\nEpidemiologyEpidemic (SIR) (Kermack & McKendrick, 1927)\n\n\n\n\n\n\n(Models developed by Wilensky (1997c) and Yang & Wilensky (2011))"
   },
   {
-    "objectID": "index.html#exemplos-1",
-    "href": "index.html#exemplos-1",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Exemplos",
-    "text": "Exemplos\n\n\nFísicaFiguras de Chladni (Chladni, 1787)\n\n\n\n\n\nPsicologia EvolutivaAltruísmo (Lehmann & Keller, 2006)\n\n\n\n\n\n\n(Modelos de Brown et al. (2025) e Wilensky (1998b))"
+    "objectID": "index.html#examples-1",
+    "href": "index.html#examples-1",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Examples",
+    "text": "Examples\n\n\nPhysicsChladni Figures** (Chladni, 1787)\n\n\n\n\n\nEvolutionary PsychologyAltruism (Lehmann & Keller, 2006)\n\n\n\n\n\n\n(Models developed by Brown et al. (2025) and Wilensky (1998a))"
   },
   {
-    "objectID": "index.html#exemplos-2",
-    "href": "index.html#exemplos-2",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Exemplos",
-    "text": "Exemplos\n\n\nSociologiaSegregação (Schelling, 1971)\n\n\n\n\n\nCiências AmbientaisIncêndios Florestais\n\n\n\n\n\n\n(Modelos de Wilensky (1997b) e Wilensky (1997a))"
+    "objectID": "index.html#examples-2",
+    "href": "index.html#examples-2",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Examples",
+    "text": "Examples\n\n\nSociologySegregation (Schelling, 1971)\n\n\n\n\n\nEnvironmental SciencesWildfires\n\n\n\n\n\n\n(Models developed by Wilensky (1997b) and Wilensky (1997a))"
   },
   {
-    "objectID": "index.html#exemplos-3",
-    "href": "index.html#exemplos-3",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Exemplos",
-    "text": "Exemplos\n\nAgentes Generativos\n\n(Modelo de Park et al. (2023))"
+    "objectID": "index.html#examples-3",
+    "href": "index.html#examples-3",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Examples",
+    "text": "Examples\n\nGenerative Agents\n\n(Model developed by Park et al. (2023))"
   },
   {
-    "objectID": "index.html#usos-de-abms",
-    "href": "index.html#usos-de-abms",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Usos de ABMs",
-    "text": "Usos de ABMs\nDesenvolvimento e corroboração de teorias.\nExploração de cenários e pontos de alavanca.\nPrevisão de cenários futuros (apenas para modelos empíricos).\n\nDada as condições da sua teoria, é possível replicar o fenômeno e seus padrões por meio de uma simulação de agentes?\n\n\n[…] eles acham que você terminou quando não consegue adicionar mais nada. Eu acho que você terminou quando não consegue tirar mais nada. (Joshua Epstein) (Rutt, 2020)\nUma teoria que não pode ser refutada por nenhum evento concebível não é científica. A irrefutabilidade não é uma virtude de uma teoria (como muitos pensam), mas um vício. (Popper, 1963/2002)\n\n\nNem sempre se chega a todas as variáveis, mas isso não é o importante para um modelo. O importante é conseguir replicar o que leva aquele fenômeno, não suas nuâncias. As nuâncias são importantes, mas quando pensamos em efeitos macro, estamos a busca da estrutura, não da exceção.\nLimitações epistemológicas."
+    "objectID": "index.html#applications-of-abms",
+    "href": "index.html#applications-of-abms",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Applications of ABMs",
+    "text": "Applications of ABMs\nDevelopment and corroboration of theories.\nExploration of scenarios and leverage points.\nPrediction of future scenarios (for empirical models only).\n\nGiven the conditions of your theory, is it possible to replicate the phenomenon and its patterns through an agent-based simulation?\n\n\n[…] they think you’re done when you can’t add anything more. I think you’re done when you can’t take anything more out. (Joshua Epstein) (Rutt, 2020)\nA theory which is not refutable by any conceivable event is nonscientific. Irrefutability is not a virtue of a theory (as people often think) but a vice. (Popper, 1963/2002)"
   },
   {
-    "objectID": "index.html#tipos-de-modelos",
-    "href": "index.html#tipos-de-modelos",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Tipos de Modelos",
-    "text": "Tipos de Modelos\n\n\nModelos abstratos permitem o exame de princípios gerais em detalhe (Rand & Wilensky, 2007).\nModelos empíricos são geralmente mais orientados à previsão e frequentemente precisam abordar questões específicas levantadas por formuladores de políticas em locais particulares (Sun et al., 2016).\nA modelagem de espectro completo combina os benefícios de modelos abstratos e empíricos (Rand & Wilensky, 2007).\n\n\n\n\n\n\n\n(Ilustração de Sun et al. (2016, Figure 3), baseada em Grimm et al. (2005, Figure 1))\n\nSimple (Rand & Wilensky, 2007; Sun et al., 2016) or abstract (Sun et al., 2016) models versus photograph (Parker et al., 2003), empirical, complicated (Sun et al., 2016), elaborated and realistic (ER) (Rand & Wilensky, 2007) models.\nSimple model example: Schelling’s segregation model (Schelling, 1971).\nWe call this the ‘Medawar zone’ because Medawar described a similar relation between the difficulty of a scientific problem and its payoff (Grimm et al., 2005)."
+    "objectID": "index.html#types-of-models",
+    "href": "index.html#types-of-models",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Types of Models",
+    "text": "Types of Models\n\n\nAbstract models allow for the examination of general principles in detail (Rand & Wilensky, 2007).\nEmpirical models are generally more oriented towards prediction and often need to address speciﬁc questions posed by policy-makers at particular sites (Sun et al., 2016).\nFull spectrum modeling combines the benefits of abstract and empirical models (Rand & Wilensky, 2007).\n\n\n\n\n\n\n\n(Artwork by Sun et al. (2016, Figure 3), based on Grimm et al. (2005, Figure 1))"
   },
   {
     "objectID": "index.html#logoclim",
     "href": "index.html#logoclim",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
+    "title": "Exploring Climate Effects with Agent-Based Models",
     "section": "LogoClim",
-    "text": "LogoClim\n\nLogoClim é um modelo em NetLogo desenvolvido para simular e visualizar condições climáticas globais. Ele permite que pesquisadores integrem dados climáticos de alta resolução em modelos baseados em agentes, apoiando pesquisas reprodutíveis em ecologia, agricultura, ciências ambientais e outras áreas que dependem de dados climáticos."
+    "text": "LogoClim\n\nLogoClim is a NetLogo model for simulating and visualizing global climate conditions. It allows researchers to integrate high-resolution climate data into agent-based models, supporting reproducible research in ecology, agriculture, environmental sciences, and other fields that rely on climate data."
   },
   {
     "objectID": "index.html#logoclim-1",
     "href": "index.html#logoclim-1",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
+    "title": "Exploring Climate Effects with Agent-Based Models",
     "section": "LogoClim",
-    "text": "LogoClim\n\n\n\nO WorldClim 2.1 é um projeto de Stephen E. Fick e Robert J. Hijmans que fornece dados climáticos globais de alta resolução, como temperatura e precipitação, podendo ser utilizados para mapeamento e modelagem espacial (Fick & Hijmans, 2017).\nO conjunto de dados inclui séries históricas reduzidas em escala (downscaled) do CRU-TS-4.09, contendo dados interpolados a partir de milhares de estações meteorológicas, além de projeções futuras reduzidas em escala derivadas dos modelos do Coupled Model Intercomparison Project Phase 6 (CMIP6)."
+    "text": "LogoClim\n\n\n\nWorldClim 2.1 is a project by Stephen E. Fick and Robert J. Hijmans that provides high-resolution global climate data, such as temperature and precipitation, which can be used for spatial mapping and modeling (Fick & Hijmans, 2017).\nThe dataset includes historical series downscaled from CRU-TS-4.09, containing data interpolated from thousands of weather stations, as well as future downscaled projections derived from models of the Coupled Model Intercomparison Project Phase 6 (CMIP6)."
   },
   {
     "objectID": "index.html#logoclim-2",
     "href": "index.html#logoclim-2",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "LogoClim",
+    "text": "LogoClim\n\n\nHistorical Climate Data\nIncludes 12 monthly points representing averages from 1970-2000 for temperature, precipitation, solar radiation, wind, vapor pressure, elevation, and bioclimatic variables.\n\n\n\nHistorical Monthly Weather Data\nIncludes 12 monthly points per year from 1951 to 2024, with minimum and maximum temperature and total precipitation, based on CRU-TS-4.09.\n\n\n\nFuture Climate Data\nIncludes 12 monthly points from CMIP6 projections for 2021-2100 (four periods) and four SSP scenarios (126, 245, 370, 585), covering average, maximum, and minimum temperature, precipitation, and bioclimatic variables."
+  },
+  {
+    "objectID": "index.html#logoclim-3",
+    "href": "index.html#logoclim-3",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "LogoClim",
+    "text": "LogoClim\n\n\n(Vartanian et al., 2025a)"
+  },
+  {
+    "objectID": "index.html#logoclim-4",
+    "href": "index.html#logoclim-4",
+    "title": "Exploring Climate Effects with Agent-Based Models",
     "section": "LogoClim",
     "text": "LogoClim\n\n\n(Vartanian et al., 2025a)"
   },
   {
     "objectID": "index.html#logônia",
     "href": "index.html#logônia",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
+    "title": "Exploring Climate Effects with Agent-Based Models",
     "section": "Logônia",
-    "text": "Logônia\n\nLogônia é um modelo em NetLogo que simula a resposta de crescimento de uma planta fictícia, a logônia, sob diferentes condições climáticas. O modelo utiliza dados climáticos do WorldClim 2.1 e demonstra como integrar o modelo LogoClim por meio da extensão LevelSpace."
+    "text": "Logônia\n\nLogônia is a NetLogo model that simulates the growth response of a fictional plant, logônia, under different climatic conditions. The model uses climate data from WorldClim 2.1 and demonstrates how to integrate the LogoClim model through the LevelSpace extension."
   },
   {
     "objectID": "index.html#logônia-1",
     "href": "index.html#logônia-1",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
+    "title": "Exploring Climate Effects with Agent-Based Models",
     "section": "Logônia",
     "text": "Logônia"
   },
   {
     "objectID": "index.html#logônia-2",
     "href": "index.html#logônia-2",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
+    "title": "Exploring Climate Effects with Agent-Based Models",
     "section": "Logônia",
     "text": "Logônia\n\n\n(Vartanian et al., 2025b)"
   },
   {
     "objectID": "index.html#logônia-3",
     "href": "index.html#logônia-3",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
+    "title": "Exploring Climate Effects with Agent-Based Models",
     "section": "Logônia",
-    "text": "Logônia\n\n\nEnergia e Probabilidade de Crescimento\n\n\n\n\n\nFases de Crescimento\n\n\n\n\nSenescência\n\n\n\n\n\n\n(Vartanian et al., 2025b)"
+    "text": "Logônia\n\n\nEnergy and Growth Probability\n\n\nGrowth Phases & Reproduction\n\n\n\n\nSenescence\n\n\n\n\n\n\n(Vartanian et al., 2025b)"
   },
   {
     "objectID": "index.html#logônia-4",
     "href": "index.html#logônia-4",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
+    "title": "Exploring Climate Effects with Agent-Based Models",
     "section": "Logônia",
     "text": "Logônia\n\n\n(Vartanian et al., 2025b)"
   },
   {
     "objectID": "index.html#logônia-5",
     "href": "index.html#logônia-5",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
+    "title": "Exploring Climate Effects with Agent-Based Models",
     "section": "Logônia",
     "text": "Logônia\n\n\n(Vartanian et al., 2025b)"
   },
   {
     "objectID": "index.html#logônia-6",
     "href": "index.html#logônia-6",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
+    "title": "Exploring Climate Effects with Agent-Based Models",
     "section": "Logônia",
     "text": "Logônia\n\n\n(Vartanian et al., 2025b)"
   },
   {
-    "objectID": "index.html#sindemia-global",
-    "href": "index.html#sindemia-global",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Sindemia Global",
-    "text": "Sindemia Global\n\n\n👁️⃤\n\n\n\nObservador\n\n\n\n\n\n\nCélulas\n\n⊞ 🌡️ 🌧️\n\n\n\n\nAlimentos\n\n🍌🍅 🥬🌾 🥛🥩\n\n\n\n\nFamílias\n\n👨‍👩‍👧 👩‍👩‍👦 👨‍👨‍👧\n\n\n\n\nCrianças\n\n🧒 👧"
+    "objectID": "index.html#logônia-7",
+    "href": "index.html#logônia-7",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Logônia",
+    "text": "Logônia\n\n\n(Silva et al., 2013, Table 1)"
   },
   {
-    "objectID": "index.html#como-saber-mais",
-    "href": "index.html#como-saber-mais",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Como Saber Mais?",
-    "text": "Como Saber Mais?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(Capa do livro de Wilensky & Rand (2015) e Railsback & Grimm (2019))"
+    "objectID": "index.html#global-syndemic",
+    "href": "index.html#global-syndemic",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Global Syndemic",
+    "text": "Global Syndemic\n\n\n👁️⃤\n\n\n\nObserver\n\n\n\n\n\n\nGrid Cells\n\n⊞ 🌡️ 🌧️\n\n\n\n\nFood\n\n🍌🍅 🥬🌾 🥛🥩\n\n\n\n\nFamilies\n\n👨‍👩‍👧 👩‍👩‍👦 👨‍👨‍👧\n\n\n\n\nChildren\n\n🧒 👧"
   },
   {
-    "objectID": "index.html#como-saber-mais-1",
-    "href": "index.html#como-saber-mais-1",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Como Saber Mais?",
-    "text": "Como Saber Mais?\n\n\n\n\n\n\n\nGrupo de Estudos de Modelagem Baseada em Agentes\n\n\n\n\n\n\n\n\n\nlogolink: Uma Interface para Executar Simulações do NetLogo a Partir do R\n\n\n\nFalar sobre a diversidade dos membros do grupo (e.g., antropologia, arqueologia, sociologia, ciência da computação, nutrição).\nFalar sobre o encontro de 1 ano do grupo."
+    "objectID": "index.html#closing-remarks",
+    "href": "index.html#closing-remarks",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Closing Remarks",
+    "text": "Closing Remarks\n \nThis presentation was created with the Quarto Publishing System. The code and materials are available on GitHub.\n\n\n\n\n\n(Artwork by Allison Horst)"
   },
   {
-    "objectID": "index.html#como-saber-mais-2",
-    "href": "index.html#como-saber-mais-2",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Como Saber Mais?",
-    "text": "Como Saber Mais?\n\n\n\n\n\n\n\nSIMBRA\n\n1.º Simpósio Interdisciplinar Brasileiro de Modelos Baseados em Agentes\n\n\n\n\n\nApoio"
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "References",
+    "text": "References\n\nIn accordance with the American Psychological Association (APA) Style, 7th edition.\n\n\n\nBrown, I., Kelter, J., & Wilensky, U. (2025). NetLogo Chladni figures model [Computer software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/ChladniFigures\n\n\nChladni, E. F. F. (1787). Entdeckungen über die Theorie des Klanges. Zentralantiquariat der Deutschen Demokratischen Republik.\n\n\nFick, S. E., & Hijmans, R. J. (2017). WorldClim 2: New 1-km spatial resolution climate surfaces for global land areas. International Journal of Climatology, 37(12), 4302–4315. https://doi.org/10.1002/joc.5086\n\n\nGrimm, V., Revilla, E., Berger, U., Jeltsch, F., Mooij, W. M., Railsback, S. F., Thulke, H.-H., Weiner, J., Wiegand, T., & DeAngelis, D. L. (2005). Pattern-oriented modeling of agent-based complex systems: Lessons from ecology. Science, 310(5750), 987–991. https://doi.org/10.1126/science.1116681\n\n\nKermack, W. O., & McKendrick, A. G. (1927). A contribution to the mathematical theory of epidemics. Proceedings of the Royal Society of London. Series A, Containing Papers of a Mathematical and Physical Character, 115(772), 700–721. https://doi.org/10.1098/rspa.1927.0118\n\n\nLehmann, L., & Keller, L. (2006). The evolution of cooperation and altruism – A general framework and a classification of models. Journal of Evolutionary Biology, 19(5), 1365–1376. https://doi.org/10.1111/j.1420-9101.2006.01119.x\n\n\nLotka, A. J. (1925). Elements of physical biology. Williams & Wilkins Company. http://archive.org/details/elementsofphysic017171mbp\n\n\nPark, J. S., O’Brien, J., Cai, C. J., Morris, M. R., Liang, P., & Bernstein, M. S. (2023, October 29). Generative agents: Interactive simulacra of human behavior. Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology. https://doi.org/10.1145/3586183.3606763\n\n\nPopper, K. R. (2002). Conjectures and refutations: The growth of scientific knowledge. Routledge. (Original work published in 1963)\n\n\nRailsback, S. F., & Grimm, V. (2019). Agent-based and individual-based modeling: A practical introduction (2nd ed.). Princeton University Press.\n\n\nRand, W., & Wilensky, U. (2007). Full spectrum modeling: From simplicity to elaboration and realism in urban pattern formation. North American Association for Computational Social and Organizational Sciences (NAACSOS). http://ccl.northwestern.edu/2007/FullSpectrum.pdf\n\n\nReynolds, C. W. (1987). Flocks, herds and schools: A distributed behavioral model. Proceedings of the 14th Annual Conference on Computer Graphics and Interactive Techniques, 21, 25–34. https://doi.org/10.1145/37401.37406\n\n\nRutt, J. (2020, November 5). Joshua Epstein on agent-based modeling (90) [Audio recording]. https://jimruttshow.blubrry.net/joshua-epstein\n\n\nSchelling, T. C. (1971). Dynamic models of segregation. The Journal of Mathematical Sociology, 1(2), 143–186. https://doi.org/10.1080/0022250X.1971.9989794\n\n\nSilva, V. M. D. A., Patrício, M. D. C. M., Ribeiro, V. H. D. A., & Medeiros, R. M. D. (2013). O desastre seca no nordeste brasileiro. Polêm!ca, 12(2), 284–293. https://doi.org/10.12957/polemica.2013.6431\n\n\nSmaldino, P. E. (2023). Modeling social behavior: Mathematical and agent-based models of social dynamics and cultural evolution. Princeton University Press.\n\n\nSun, Z., Lorscheid, I., Millington, J. D., Lauf, S., Magliocca, N. R., Groeneveld, J., Balbi, S., Nolzen, H., Müller, B., Schulze, J., & Buchmann, C. M. (2016). Simple or complicated agent-based models? A complicated issue. Environmental Modelling & Software, 86, 56–67. https://doi.org/10.1016/j.envsoft.2016.09.006\n\n\nVartanian, D., Garcia, L., & Carvalho, A. M. (2025a). LogoClim: WorldClim in NetLogo [Computer software]. https://doi.org/10.17605/OSF.IO/EAPZU\n\n\nVartanian, D., Garcia, L., & Carvalho, A. M. (2025b). Logônia: Plant growth response model in NetLogo [Computer software]. https://doi.org/10.17605/OSF.IO/TPY7S\n\n\nVolterra, V. (1926). Fluctuations in the abundance of a species considered mathematically. Nature, 118(2972), 558–560. https://doi.org/10.1038/118558a0\n\n\nWilensky, U. (1997a). NetLogo fire model [Computer software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/Fire\n\n\nWilensky, U. (1997b). NetLogo segregation model [Computer software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/Segregation\n\n\nWilensky, U. (1997c). NetLogo wolf sheep predation model [Computer software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/WolfSheepPredation\n\n\nWilensky, U. (1998a). NetLogo altruism model [Computer software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/Altruism\n\n\nWilensky, U. (1998b). NetLogo flocking model [Computer software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/Flocking\n\n\nYang, C., & Wilensky, U. (2011). NetLogo epiDEM basic model [Computer software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/epiDEMBasic"
   },
   {
-    "objectID": "index.html#considerações-finais",
-    "href": "index.html#considerações-finais",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Considerações Finais",
-    "text": "Considerações Finais\n \nEsta apresentação foi criada com o sistema de publicação Quarto. O código e os materiais estão disponíveis no GitHub.\n\n\n\n\n\n(Ilustração de Allison Horst)"
-  },
-  {
-    "objectID": "index.html#referências",
-    "href": "index.html#referências",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Referências",
-    "text": "Referências\n\nDe acordo com o Estilo da American Psychological Association (APA), 7ª edição.\n\n\n\nBrown, I., Kelter, J., & Wilensky, U. (2025). NetLogo Chladni figures model [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/ChladniFigures\n\n\nChladni, E. F. F. (1787). Entdeckungen über die Theorie des Klanges. Zentralantiquariat der Deutschen Demokratischen Republik.\n\n\nFick, S. E., & Hijmans, R. J. (2017). WorldClim 2: New 1-km spatial resolution climate surfaces for global land areas. International Journal of Climatology, 37(12), 4302–4315. https://doi.org/10.1002/joc.5086\n\n\nGrimm, V., Revilla, E., Berger, U., Jeltsch, F., Mooij, W. M., Railsback, S. F., Thulke, H.-H., Weiner, J., Wiegand, T., & DeAngelis, D. L. (2005). Pattern-oriented modeling of agent-based complex systems: Lessons from ecology. Science, 310(5750), 987–991. https://doi.org/10.1126/science.1116681\n\n\nKermack, W. O., & McKendrick, A. G. (1927). A contribution to the mathematical theory of epidemics. Proceedings of the Royal Society of London. Series A, Containing Papers of a Mathematical and Physical Character, 115(772), 700–721. https://doi.org/10.1098/rspa.1927.0118\n\n\nLehmann, L., & Keller, L. (2006). The evolution of cooperation and altruism – A general framework and a classification of models. Journal of Evolutionary Biology, 19(5), 1365–1376. https://doi.org/10.1111/j.1420-9101.2006.01119.x\n\n\nLotka, A. J. (1925). Elements of physical biology. Williams & Wilkins Company. http://archive.org/details/elementsofphysic017171mbp\n\n\nPark, J. S., O’Brien, J., Cai, C. J., Morris, M. R., Liang, P., & Bernstein, M. S. (2023, outubro 29). Generative agents: Interactive simulacra of human behavior. Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology. https://doi.org/10.1145/3586183.3606763\n\n\nParker, D. C., Manson, S. M., Janssen, M. A., Hoffmann, M. J., & Deadman, P. (2003). Multi-agent systems for the simulation of land-use and land-cover change: a review. Annals of the Association of American Geographers, 93(2), 314–337. https://doi.org/10.1111/1467-8306.9302004\n\n\nPopper, K. R. (2002). Conjectures and refutations: The growth of scientific knowledge. Routledge. (Original work published in 1963)\n\n\nRailsback, S. F., & Grimm, V. (2019). Agent-based and individual-based modeling: A practical introduction (2º ed). Princeton University Press.\n\n\nRand, W., & Wilensky, U. (2007). Full spectrum modeling: From simplicity to elaboration and realism in urban pattern formation. North American Association for Computational Social and Organizational Sciences (NAACSOS). http://ccl.northwestern.edu/2007/FullSpectrum.pdf\n\n\nReynolds, C. W. (1987). Flocks, herds and schools: A distributed behavioral model. Proceedings of the 14th Annual Conference on Computer Graphics and Interactive Techniques, 21, 25–34. https://doi.org/10.1145/37401.37406\n\n\nRutt, J. (2020, novembro 5). Joshua Epstein on agent-based modeling (90) [Audio recording]. https://jimruttshow.blubrry.net/joshua-epstein\n\n\nSchelling, T. C. (1971). Dynamic models of segregation. The Journal of Mathematical Sociology, 1(2), 143–186. https://doi.org/10.1080/0022250X.1971.9989794\n\n\nSmaldino, P. E. (2023). Modeling social behavior: mathematical and agent-based models of social dynamics and cultural evolution. Princeton University Press.\n\n\nSun, Z., Lorscheid, I., Millington, J. D., Lauf, S., Magliocca, N. R., Groeneveld, J., Balbi, S., Nolzen, H., Müller, B., Schulze, J., & Buchmann, C. M. (2016). Simple or complicated agent-based models? A complicated issue. Environmental Modelling & Software, 86, 56–67. https://doi.org/10.1016/j.envsoft.2016.09.006\n\n\nVartanian, D., Garcia, L., & Carvalho, A. M. (2025a). LogoClim: WorldClim in NetLogo [Software]. https://doi.org/10.17605/OSF.IO/EAPZU\n\n\nVartanian, D., Garcia, L., & Carvalho, A. M. (2025b). Logônia: Plant growth response model in NetLogo [Software]. https://doi.org/10.17605/OSF.IO/TPY7S\n\n\nVolterra, V. (1926). Fluctuations in the abundance of a species considered mathematically. Nature, 118(2972), 558–560. https://doi.org/10.1038/118558a0\n\n\nWilensky, U. (1997a). NetLogo fire model [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/Fire\n\n\nWilensky, U. (1997b). NetLogo segregation model [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/Segregation\n\n\nWilensky, U. (1997c). NetLogo wolf sheep predation model [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/WolfSheepPredation\n\n\nWilensky, U. (1998a). Flocking model [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/Flocking\n\n\nWilensky, U. (1998b). NetLogo altruism model [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/Altruism\n\n\nWilensky, U., & Rand, W. (2015). An introduction to agent-based modeling: Modeling natural, social, and engineered complex systems with NetLogo (a). The MIT Press.\n\n\nYang, C., & Wilensky, U. (2011). NetLogo epiDEM basic model [Software]. Center for Connected Learning; Computer Based Modeling at Northwestern University. http://ccl.northwestern.edu/netlogo/models/epiDEMBasic"
-  },
-  {
-    "objectID": "index.html#obrigado",
-    "href": "index.html#obrigado",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "Obrigado!",
-    "text": "Obrigado!\n\n\n\n\n\n(Ilustração de Allison Horst)"
-  },
-  {
-    "objectID": "index.html#section",
-    "href": "index.html#section",
-    "title": "Explorando Efeitos Climáticos com Modelos Baseados em Agentes",
-    "section": "",
-    "text": "Linktree\n\n\n\n\n\nApresentação"
+    "objectID": "index.html#thank-you",
+    "href": "index.html#thank-you",
+    "title": "Exploring Climate Effects with Agent-Based Models",
+    "section": "Thank you!",
+    "text": "Thank you!\n\n\n\n\n\n(Artwork by Allison Horst)"
   }
 ]

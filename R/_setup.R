@@ -111,9 +111,9 @@ theme_set(
 # <https://github.com/paleolimbot/rbbt/issues/47>). If not, install `rbbt`
 # from @wmoldham fork `remotes::install_github("wmoldham/rbbt", force = TRUE)`.
 
-# bbt_write_quarto_bib(
-#   bib_file = here::here("references.bib"),
-#   dir = c("."),
-#   pattern = "\\.qmd$",
-#   wd = here::here()
-# )
+bbt_write_quarto_bib(
+  bib_file = here::here("references.bib"),
+  dir = c("."),
+  pattern = "\\.qmd$",
+  wd = here::here()
+)

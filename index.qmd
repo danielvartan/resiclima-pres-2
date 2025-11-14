@@ -1,4 +1,4 @@
-## Olá! 👋 {.smaller}
+## Hi there! 👋 {.smaller}
 
 ```{r}
 #| label: setup
@@ -10,32 +10,18 @@ library(rutils) # github.com/danielvartan/rutils
 source(here("R", "_setup.R"))
 ```
 
-::: {.notes}
-- 30m: 10-15 slides (máximo), sem contar com slides secundários.
-- Adicionar modelos empíricos nos exemplos.
-- Apresentação para a II Reunião de Perspectivas Multidisciplinares sobre Mudanças Climáticas da Rede Resiclima.
-
-Mensagens que precisam ser transmitidas:
-
-- Modelos baseados em agentes (ABMs) são uma ferramenta fácil, flexível, realista e intuitiva para se modelar fenômenos complexos.
-- ABMs permitem simular as interações e observar as emergências advindas delas.
-- Modelos baseados em agentes possibilitam ver e compreender o desenvolvimento de comportamentos ao longo do tempo.
-- É uma ótima ferramenta para o desenvolvimento e corroboração de teorias (e.g., psicologia evolutiva, ecologia, ciências sociais).
-- Modelos Baseados em Agentes conceituais e empíricos podem ser misturados para adicionar camadas a modelos mais simples.
-:::
-
 ::::: {.columns}
 :::: {.column style="width: 55%; font-size: 0.75em;"}
-Esta apresentação trata sobre o uso de Modelos Baseados em Agentes (ABMs) e mostra como eles representam **uma ferramenta capaz de integrar diferentes perspectivas** na modelagem de sistemas complexos e de analisar de forma conjunta os efeitos das mudanças climáticas.
+This presentation explores how Agent-Based Models (ABMs) can **integrate multiple perspectives** in modeling complex systems and function as a tool for analyzing the combined impacts of climate change.
 
 ::: {style="padding-top: 15px;"}
-Aqui estão os tópicos principais:
+Here are the main topics:
 
-1. **Modelos Baseados em Agentes**
-1. **LogoClim: WorldClim no NetLogo**
-1. **Logônia: Um Exemplo de Aplicação**
-1. **Sindemia Global**
-1. **Conclusão**
+1. **Agent-Based Models**
+1. **LogoClim: WorldClim in NetLogo**
+1. **Logônia: An Example Application**
+1. **Global Syndemic**
+1. **Conclusion**
 :::
 ::::
 :::: {.column style="width: 45%; text-align: center"}
@@ -48,15 +34,15 @@ Aqui estão os tópicos principais:
 ::: {.notes}
 :::
 
-## Modelos Baseados em Agentes {.smaller}
+## Agent-Based Models {.smaller}
 
 ::::: {.columns}
 :::: {.column style="width: 47.5%; font-size: 0.725em;"}
-Modelos baseados em agentes (ABMs) são **modelos computacionais** usados para simular o comportamento de agentes e suas interações, permitindo estudar **fenômenos emergentes**.
+Agent-based models (ABMs) are **computational models** with the purpose of simulating the behavior of agents and their interactions, allowing us to study **emergent phenomena**.
 
-Em vez de descrever um sistema apenas com variáveis que representam o estado do sistema como um todo (**abordagem global**/de cima pra baixo), modelamos apenas seus agentes e suas interações (**abordagem local**/de baixo pra cima) [@railsback2019].
+Instead of describing a system only with variables representing the state of the whole system (a **global approach**/top-down), we model its individual agents (a **local approach**/bottom-up) [@railsback2019].
 
-Agentes frequentemente representam pessoas ou outros animais, mas **podem representar qualquer coisa**, desde células até empresas ou municípios [@smaldino2023a].
+Agents often represent people or other animals, but **agents can also represent anything** from biological cells to economic firms to political municipalities [@smaldino2023a].
 :::
 :::: {.column style="width: 5%;"}
 ::::
@@ -70,12 +56,10 @@ Agentes frequentemente representam pessoas ou outros animais, mas **podem repres
 :::::
 
 ::: footer
-(Imagem e vídeo de [Primer](https://www.youtube.com/watch?v=YNMkADpvO4w))
+(Image and video by [Primer](https://www.youtube.com/watch?v=YNMkADpvO4w))
 :::
 
 ::: {.notes}
-- Eu não consigo estudar um formigueiro estudando somente a formiga, pois um formigueiro só existe por meio da interação de várias formigas.
-- Eu não consigo estudar uma sociedade estudando somente o ser humano, porque esse organismo não evoluiu, não se desenvolveu, no vácuo. E de certa forma, eu não consigo estudar o ser humano sem a sociedade, pois os comportamentos que aquele ser humano manifesta se deu e se dá por meio desse contexto e da história desse contexto.
 :::
 
 ## NetLogo {.smaller}
@@ -92,17 +76,17 @@ Agentes frequentemente representam pessoas ou outros animais, mas **podem repres
 ::::
 
 ::: footer
-(Foto de [MIT Museum](https://mitmuseum.mit.edu/collections/object/GCP-00019361))
+(Photo by the [MIT Museum](https://mitmuseum.mit.edu/collections/object/GCP-00019361))
 :::
 
 ::: {.notes}
 :::
 
-## Modelagem Orient. a Padrões {.smaller}
+## Pattern-Oriented Modeling {.smaller}
 
-**Um padrão é qualquer coisa além da variação aleatória**.
+**A pattern is anything beyond random variation**.
 
-Podemos pensar em padrões como regularidades, sinais.
+We can think of patterns as regularities, signals.
 
 :::: {.columns}
 ::: {.column .center style="width: 50%; padding-top: 30px;"}
@@ -114,53 +98,52 @@ Podemos pensar em padrões como regularidades, sinais.
 ::::
 
 ::: {style="font-size: 0.65em; padding-left: 30px; padding-right: 30px; margin-top: -30px" .brand-gray}
-**Alinhamento**: Um pássaro tende a se alinhar na mesma direção que os pássaros próximos.
+**Alignment**: A bird tends to turn so that it is moving in the same direction that nearby birds are moving.
 
-**Separação**: Um pássaro vai se afastar para evitar outro pássaro que se aproxime demais.
+**Separation**: A bird will turn to avoid another bird which gets too close.
 
-**Coesão**: Um pássaro se moverá em direção a outros pássaros próximos (a menos que outro pássaro esteja muito próximo).
-
+**Cohesion**: A bird will move towards other nearby birds (unless another bird is too close).
 :::
 
 ::: footer
-(Vídeo de National Geographic | Modelo de @wilensky1998, baseado em @reynolds1987)
+(Video by [National Geographic](https://www.youtube.com/watch?v=V4f_1_r80RY) | Flocking model by @wilensky1998, based on @reynolds1987)
 :::
 
 ::: {.notes}
 :::
 
-## Exemplos {.smaller}
+## Examples {.smaller}
 
 :::: {.columns}
 ::: {.column style="width: 50%; font-size: 0.75em;"}
-**Ecologia**`<br>`{=html}[Presa-Predador](https://pt.wikipedia.org/wiki/Equa%C3%A7%C3%A3o_de_Lotka-Volterra) [@lotka1925; @volterra1926]
+**Ecology**`<br>`{=html}[Predator-Prey](https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations) [@lotka1925; @volterra1926]
 
 ![](images/wilensky-1997-wolf-sheep-predation-model.gif){fig-align="center" style="width: 90%;"}
 :::
 ::: {.column style="width: 50%; font-size: 0.75em;"}
-**Epidemiologia**`<br>`{=html}[Epidemia (SIR)](https://pt.wikipedia.org/wiki/Modelo_epid%C3%AAmico#O_Modelo_SIR) [@kermack1927]
+**Epidemiology**`<br>`{=html}[Epidemic (SIR)](https://en.wikipedia.org/wiki/Compartmental_models_(epidemiology)#SIR_model) [@kermack1927]
 
 ![](images/yang-2011-epidem-basic-model.gif){fig-align="center" style="width: 90%;"}
 :::
 ::::
 
 ::: footer
-(Modelos de @wilensky1997 e @yang2011)
+(Models developed by @wilensky1997 and @yang2011)
 :::
 
 ::: {.notes}
 :::
 
-## Exemplos {.smaller}
+## Examples {.smaller}
 
 :::: {.columns}
 ::: {.column style="width: 50%; font-size: 0.75em;"}
-**Física`<br>`{=html}[Figuras de Chladni](https://pt.wikipedia.org/wiki/Figura_de_Chladni)** [@chladni1787]
+**Physics**`<br>`{=html}[Chladni Figures](https://en.wikipedia.org/wiki/Ernst_Chladni#Chladni_figures)** [@chladni1787]
 
 ![](images/brown-2025-chladni-figures-model.gif){fig-align="center" style="width: 90%;"}
 :::
 ::: {.column style="width: 50%; font-size: 0.75em;"}
-**Psicologia Evolutiva**`<br>`{=html}Altruísmo [@lehmann2006]
+**Evolutionary Psychology**`<br>`{=html}[Altruism](https://en.wikipedia.org/wiki/Altruism) [@lehmann2006]
 
 ![](images/wilensky-1997-altruism-model.gif){fig-align="center" style="width: 90%;"}
 :::
@@ -170,19 +153,19 @@ Podemos pensar em padrões como regularidades, sinais.
 :::
 
 ::: footer
-(Modelos de @brown2025 e @wilensky1998a)
+(Models developed by @brown2025 and @wilensky1998a)
 :::
 
-## Exemplos {.smaller}
+## Examples {.smaller}
 
 :::: {.columns}
 ::: {.column style="width: 50%; font-size: 0.75em;"}
-**Sociologia**`<br>`{=html}[Segregação](https://en.wikipedia.org/wiki/Schelling%27s_model_of_segregation) [@schelling1971]
+**Sociology**`<br>`{=html}[Segregation](https://en.wikipedia.org/wiki/Schelling%27s_model_of_segregation) [@schelling1971]
 
 ![](images/wilensky-1997-segregation-model.gif){fig-align="center" style="width: 90%;"}
 :::
 ::: {.column style="width: 50%; font-size: 0.75em;"}
-**Ciências Ambientais**`<br>`{=html}[Incêndios Florestais](https://pt.wikipedia.org/wiki/Inc%C3%AAndio_de_vegeta%C3%A7%C3%A3o)
+**Environmental Sciences**`<br>`{=html}[Wildfires](https://en.wikipedia.org/wiki/Wildfire)
 
 ![](images/wilensky-1997-fire-model.gif){fig-align="center" style="width: 90%;"}
 :::
@@ -192,13 +175,13 @@ Podemos pensar em padrões como regularidades, sinais.
 :::
 
 ::: footer
-(Modelos de @wilensky1997a e @wilensky1997b)
+(Models developed by @wilensky1997a and @wilensky1997b)
 :::
 
-## Exemplos {.smaller }
+## Examples {.smaller }
 
 ::: {.column style="font-size: 0.75em;"}
-[**Agentes Generativos**](https://en.wikipedia.org/wiki/Schelling%27s_model_of_segregation)
+[**Generative Agents**](https://en.wikipedia.org/wiki/Generative_artificial_intelligence)
 :::
 
 ![](images/park-2023-generative-agents.gif){fig-align="center" style="width: 100%;"}
@@ -207,41 +190,39 @@ Podemos pensar em padrões como regularidades, sinais.
 :::
 
 ::: footer
-(Modelo de @park2023)
+(Model developed by @park2023)
 :::
 
-## Usos de ABMs {.smaller}
+## Applications of ABMs {.smaller}
 
-Desenvolvimento e **corroboração** de teorias.
+Development and **corroboration** of theories.
 
-**Exploração** de cenários e pontos de alavanca.
+**Exploration** of scenarios and leverage points.
 
-**Previsão** de cenários futuros (apenas para modelos empíricos).
+**Prediction** of future scenarios (for empirical models only).
 
 ::: {.brand-red style="font-weight: bold; text-align: center; padding-top: 1em; padding-bottom: 1em;"}
-Dada as condições da sua teoria, é possível [replicar]{.brand-green} o fenômeno e seus padrões por meio de uma simulação de agentes?
+Given the conditions of your theory, is it possible to [replicate]{.brand-green} the phenomenon and its patterns through an agent-based simulation?
 :::
 
 ::: {style="font-size: 0.85em;"}
-\[...\] eles acham que você terminou quando não consegue adicionar mais nada. Eu acho que você terminou quando não consegue tirar mais nada. (Joshua Epstein) [@rutt2020]
+\[...\] they think you're done when you can't add anything more. I think you're done when you can't take anything more out. (Joshua Epstein) [@rutt2020]
 
-Uma teoria que não pode ser refutada por nenhum evento concebível não é científica. A irrefutabilidade não é uma virtude de uma teoria (como muitos pensam), mas um vício. [@popper2002]
+A theory which is not refutable by any conceivable event is nonscientific. Irrefutability is not a virtue of a theory (as people often think) but a vice. [@popper2002]
 :::
 
 ::: {.notes}
-- Nem sempre se chega a todas as variáveis, mas isso não é o importante para um modelo. O importante é conseguir replicar o que leva aquele fenômeno, não suas nuâncias. As nuâncias são importantes, mas quando pensamos em efeitos macro, estamos a busca da estrutura, não da exceção.
-- Limitações epistemológicas.
 :::
 
-## Tipos de Modelos {.smaller}
+## Types of Models {.smaller}
 
 :::: {.columns}
 ::: {.column style="width: 50%; font-size: 0.85em; padding-top: 0px;"}
-**Modelos abstratos** permitem o exame de **princípios gerais** em detalhe [@rand2007].
+**Abstract models** allow for the examination of **general principles** in detail [@rand2007].
 
-**Modelos empíricos** são geralmente mais orientados à **previsão** e frequentemente precisam abordar questões específicas levantadas por formuladores de políticas em locais particulares [@sun2016].
+**Empirical models** are generally more oriented towards **prediction** and often need to address speciﬁc questions posed by policy-makers at particular sites [@sun2016].
 
-A **modelagem de espectro completo** combina os benefícios de modelos abstratos e empíricos [@rand2007].
+**Full spectrum modeling** combines the benefits of abstract and empirical models [@rand2007].
 :::
 
 ::: {.column style="width: 50%;"}
@@ -250,22 +231,17 @@ A **modelagem de espectro completo** combina os benefícios de modelos abstratos
 ::::
 
 ::: footer
-(Ilustração de @sun2016[Figure 3], baseada em @grimm2005[Figure 1])
+(Artwork by @sun2016[Figure 3], based on @grimm2005[Figure 1])
 :::
 
 ::: {.notes}
-*Simple* [@sun2016; @rand2007] or *abstract* [@sun2016] models *versus* *photograph* [@parker2003], *empirical*, *complicated* [@sun2016], *elaborated and realistic (ER)* [@rand2007] models.
-
-Simple model example: Schelling's segregation model [@schelling1971].
-
-We call this the ‘Medawar zone’ because Medawar described a similar relation between the difficulty of a scientific problem and its payoff [@grimm2005].
 :::
 
 ## LogoClim {.smaller}
 
-![](images/logoclim-logo.png){style="height: 5em;"}
+[![](images/logoclim-logo.png){style="height: 5em;"}](https://github.com/sustentarea/logoclim)
 
-[`LogoClim`](https://github.com/sustentarea/logoclim) é um modelo em [NetLogo](https://www.netlogo.org/) desenvolvido para simular e visualizar condições climáticas globais. Ele permite que pesquisadores integrem dados climáticos de alta resolução em modelos baseados em agentes, apoiando pesquisas reprodutíveis em ecologia, agricultura, ciências ambientais e outras áreas que dependem de dados climáticos.
+[`LogoClim`](https://github.com/sustentarea/logoclim) is a [NetLogo](https://www.netlogo.org) model for simulating and visualizing global climate conditions. It **allows researchers to integrate high-resolution climate data into agent-based models**, supporting reproducible research in ecology, agriculture, environmental sciences, and other fields that rely on climate data.
 
 ::: {.notes}
 :::
@@ -274,14 +250,42 @@ We call this the ‘Medawar zone’ because Medawar described a similar relation
 
 :::: {.columns}
 ::: {.column style="width: 50%; font-size: 0.75em; padding-top: 0px;"}
-![](images/worldclim-logo.png){style="width: 15em;"}
+[![](images/worldclim-logo.png){style="width: 15em;"}]((https://www.worldclim.org/))
 
-O [WorldClim](https://www.worldclim.org/) 2.1 é um projeto de [Stephen E. Fick](https://orcid.org/0000-0002-3548-6966) e [Robert J. Hijmans](https://orcid.org/0000-0001-5872-2872) que fornece dados climáticos globais de alta resolução, como temperatura e precipitação, podendo ser utilizados para mapeamento e modelagem espacial [@fick2017].
+[WorldClim](https://www.worldclim.org/) 2.1 is a project by [Stephen E. Fick](https://orcid.org/0000-0002-3548-6966) and [Robert J. Hijmans](https://orcid.org/0000-0001-5872-2872) that provides high-resolution global climate data, such as temperature and precipitation, which can be used for spatial mapping and modeling [@fick2017].
 
-O conjunto de dados inclui séries históricas reduzidas em escala (*downscaled*) do [CRU-TS-4.09](https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.09/), contendo dados interpolados a partir de milhares de estações meteorológicas, além de projeções futuras reduzidas em escala derivadas dos modelos do Coupled Model Intercomparison Project Phase 6 ([CMIP6](https://wcrp-cmip.org/cmip-phases/cmip6/)).
+The dataset includes historical series downscaled from [**CRU-TS-4.09**](https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.09/), containing data interpolated from thousands of weather stations, as well as future downscaled projections derived from models of the Coupled Model Intercomparison Project Phase 6 ([**CMIP6**](https://wcrp-cmip.org/cmip-phases/cmip6/)).
+
 :::
 ::: {.column style="width: 50%;"}
 ![](images/vartanian-2024-figure-2.png){fig-align="center" style="width: 80%; padding-top: 0px;"}
+:::
+::::
+
+::: {.notes}
+:::
+
+## LogoClim {.smaller}
+
+:::: {.columns}
+::: {.column style="width: 30%; font-size: 0.9em;"}
+[**Historical Climate Data**]{.brand-red}
+
+Includes 12 monthly points representing averages from **1970-2000** for temperature, precipitation, solar radiation, wind, vapor pressure, elevation, and [bioclimatic variables](https://www.worldclim.org/data/bioclim.html).
+:::
+:::: {.column style="width: 5%;"}
+::::
+::: {.column style="width: 30%; font-size: 0.9em;"}
+[**Historical Monthly Weather Data**]{.brand-red}
+
+Includes 12 monthly points per year from **1951 to 2024**, with minimum and maximum temperature and total precipitation, based on [CRU-TS-4.09](https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.09/).
+:::
+:::: {.column style="width: 5%;"}
+::::
+::: {.column style="width: 30%; font-size: 0.9em;"}
+[**Future Climate Data**]{.brand-red}
+
+Includes 12 monthly points from [CMIP6](https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6) projections for **2021-2100 (four periods)** and **four** [**SSP scenarios**](https://climatedata.ca/resource/understanding-shared-socio-economic-pathways-ssps/) (126, 245, 370, 585), covering average, maximum, and minimum temperature, precipitation, and [bioclimatic variables](https://www.worldclim.org/data/bioclim.html).
 :::
 ::::
 
@@ -299,11 +303,22 @@ O conjunto de dados inclui séries históricas reduzidas em escala (*downscaled*
 ::: {.notes}
 :::
 
+## LogoClim {.smaller}
+
+![](images/logoclim-precision.png){fig-align="center" style="width: 100%; padding-top: 1.5em;"}
+
+::: footer
+[@vartanian2025w]
+:::
+
+::: {.notes}
+:::
+
 ## Logônia {.smaller}
 
 [![](images/logonia-logo.svg){style="width: 120px;"}](https://github.com/sustentarea/logonia)
 
-[`Logônia`](https://github.com/sustentarea/logonia) é um modelo em [NetLogo](https://www.netlogo.org/) que simula a resposta de crescimento de uma planta fictícia, a logônia, sob diferentes condições climáticas. O modelo utiliza dados climáticos do WorldClim 2.1 e demonstra como integrar o modelo [`LogoClim`](https://github.com/sustentarea/logoclim) por meio da extensão [`LevelSpace`](https://ccl.northwestern.edu/netlogo/docs/ls.html).
+[`Logônia`](https://github.com/sustentarea/logonia) is a [NetLogo](https://www.netlogo.org) model that simulates the growth response of a fictional plant, logônia, under different climatic conditions. The model uses climate data from [WorldClim 2.1](https://worldclim.org/) and demonstrates how to integrate the [`LogoClim`](https://github.com/sustentarea/logoclim) model through the [`LevelSpace`](https://ccl.northwestern.edu/netlogo/docs/ls.html) extension.
 
 ![](images/logonia-evolution.svg){fig-align="center" style="width: 70%; padding-top: 0.5em;"}
 
@@ -344,16 +359,16 @@ O conjunto de dados inclui séries históricas reduzidas em escala (*downscaled*
 
 :::: {.columns}
 ::: {.column .center style="width: 50%; padding-top: 0px;"}
-Energia e Probabilidade de Crescimento
+Energy and Growth Probability
 
-![](images/logistic-regression-sigmoid.png){fig-align="center" style="width: 90%;"}
+![](images/logistic-regression-sigmoid.png){style="width: 90%; padding-top: 50px;"}
 :::
 ::: {.column style="width: 50%; padding-top: 0px;"}
-Fases de Crescimento
+Growth Phases & Reproduction
 
 ![](images/logonia-shapes.svg){fig-align="center" style="width: 90%;"}
 
-Senescência
+Senescence
 
 ![](images/logonia-aging.svg){fig-align="center" style="width: 90%;"}
 :::
@@ -399,7 +414,18 @@ Senescência
 ::: {.notes}
 :::
 
-## Sindemia Global
+## Logônia {.smaller}
+
+![](images/silva-2023-table-1.png){fig-align="center" style="width: 100%; padding-top: 0px; padding-bottom: 0px;"}
+
+::: footer
+[@silva2013, Table 1]
+:::
+
+::: {.notes}
+:::
+
+## Global Syndemic
 
 :::: {.columns}
 ::: {.column style="width: 42.5%; text-align: right; font-size: 2em; margin-top: -30px;"}
@@ -408,7 +434,7 @@ Senescência
 ::: {.column style="width: 2.5%; margin-top: -15px;"}
 :::
 ::: {.column style="width: 55%; text-align: left; font-size: 0.8em; font-weight: bold; padding-top: 1.25em; margin-top: -15px;"}
-Observador
+Observer
 :::
 ::::
 
@@ -417,7 +443,7 @@ Observador
 
 ::::: {.columns}
 :::: {.column style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;"}
-Células
+Grid Cells
 
 ::: {style="font-size: 2.5em;"}
 ⊞`<br>`{=html}
@@ -428,7 +454,7 @@ Células
 :::: {.column style="width: 2.5%;"}
 ::::
 :::: {.column style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;"}
-Alimentos
+Food
 
 ::: {style="font-size: 2.5em;"}
 🍌🍅`<br>`{=html}
@@ -439,7 +465,7 @@ Alimentos
 :::: {.column style="width: 2.5%;"}
 ::::
 :::: {.column style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;"}
-Famílias
+Families
 
 ::: {style="font-size: 2.5em;"}
 👨‍👩‍👧`<br>`{=html}
@@ -450,7 +476,7 @@ Famílias
 :::: {.column style="width: 2.5%;"}
 ::::
 :::: {.column style="width: 23.125%; text-align: center; font-size: 0.8em; font-weight: bold;"}
-Crianças
+Children
 
 ::: {style="font-size: 2.5em;"}
 🧒`<br>`{=html}
@@ -462,109 +488,26 @@ Crianças
 ::: {.notes}
 :::
 
-## Como Saber Mais? {.smaller}
+## Closing Remarks {.smaller}
 
-:::: {.columns}
-::: {.column style="width: 47.5%;"}
-[![](images/wilensky-2015-book-cover.jpg){fig-align="center" style="width: 100%; padding-top: 15px;"}](https://mitpress.mit.edu/9780262731898/an-introduction-to-agent-based-modeling/)
-:::
-::: {.column style="width: 5%;"}
-:::
-::: {.column style="width: 47.5%;"}
-[![](images/railsback-2019-cover.png){fig-align="center" style="width: 90%;"}](https://www.railsback-grimm-abm-book.com/)
-:::
-::::
+[![License: GPLv3](images/gplv3-license-badge.svg){style="width: 12%; padding-top: 0px;"}](https://www.gnu.org/licenses/gpl-3.0)
+[![License: CC BY 4.0](images/cc-by-nc-sa-4-0-license-badge.svg){style="width: 19%; padding-top: 0px;"}](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)
 
-::: footer
-(Capa do livro de @wilensky2015 e @railsback2019)
-:::
-
-::: {.notes}
-:::
-
-## Como Saber Mais? {.smaller}
-
-::::: {.columns}
-:::: {.column style="width: 47.5%; padding-top: 3.5em;"}
-[![](images/abmstudygroup-logo.png){fig-align="center" style="width: 50%; border-radius: 50%;"}](https://abmstudygroup.org)
-
-::: {style="text-align: center; margin-top: -1em;"}
-[Grupo de Estudos de Modelagem Baseada em Agentes]{style="font-size: 1em; font-weight: bold;"}
-:::
-::::
-:::: {.column style="width: 5%;"}
-::::
-:::: {.column style="width: 47.5%; padding-top: 2em;"}
-[![](images/logolink-logo.svg){fig-align="center" style="width: 50%;"}](https://danielvartan.github.io/logolink)
-
-::: {style="text-align: center; margin-top: -1em;"}
-[`logolink`: Uma Interface para Executar Simulações do NetLogo a Partir do R]{style="font-size: 1em; font-weight: bold;"}
-:::
-::::
-:::::
-
-::: {.notes}
-- Falar sobre a diversidade dos membros do grupo (e.g., antropologia, arqueologia, sociologia, ciência da computação, nutrição).
-- Falar sobre o encontro de 1 ano do grupo.
-:::
-
-## Como Saber Mais? {.smaller}
-
-::::: {.columns}
-:::: {.column style="width: 47.5%;"}
-[![](images/simbra-icon.svg){fig-align="center" style="width: 60%; padding-top: 1em;"}](https://simbra.com.br)
-
-::: {style="text-align: center; margin-top: -1.5em; line-height: 1em;"}
-[SIMBRA]{style="font-family: Montserrat; font-size: 2em; font-weight: 900;"}
-
-::: {style="margin-top: -0.5em;"}
-[1.º Simpósio Interdisciplinar Brasileiro`<br>`{=html} de Modelos Baseados em Agentes]{style="font-family: Montserrat; font-size: 0.75em; font-weight: 500;"}
-:::
-:::
-::::
-:::: {.column style="width: 5%;"}
-::::
-:::: {.column style="width: 47.5%; text-align: center; display: inline-block;"}
-**Apoio**
-
-[![](images/sustentarea-logo.svg){.logo style="width: 3em; margin: 0.25em"}](https://www.fsp.usp.br/sustentarea)
-[![](images/inct-logo.svg){.logo style="width: 5em; margin: 0.25em"}](https://www.fsp.usp.br/inct-combate-a-fome)
-[![](images/usp-fsp-logo.png){.logo style="width: 3em; margin: 0.25em"}](https://www.fsp.usp.br/)
-[![](images/usp-each-logo.svg){.logo style="width: 5.5em; margin: 0.25em"}](https://www.each.usp.br/)
-[![](images/usp-iee-logo.png){.logo style="width: 3em; margin: 0.25em"}](https://www.each.usp.br/)
-[![](images/usp-mae-levoc-logo.svg){.logo style="width: 5.5em; margin: 0.25em"}](https://mae.usp.br/levoc/)
-[![](images/usp-logo.svg){.logo style="width: 3.5em; margin: 0.25em"}](https://www.usp.br/)
-[![](images/ufpi-logo.png){.logo style="width: 7em; margin: 0.25em"}](https://www.ufpi.br/)
-[![](images/resiclima-logo.svg){.logo style="width: 3em; margin: 0.25em"}](https://resiclima.com.br/)
-[![](images/qub-logo.svg){.logo style="width: 5.5em; margin: 0.25em"}](https://www.qub.ac.uk/)
-[![](images/omf-logo.svg){.logo style="width: 4.5em; margin: 0.25em"}](https://www.openmodelingfoundation.org/)
-[![](images/comses-net-logo.png){.logo style="width: 6.5em; margin: 0.25em"}](https://www.comses.net/)
-::::
-:::::
-
-::: {.notes}
-:::
-
-## Considerações Finais {.smaller}
-
-[![Licença: GPLv3](images/gplv3-license-badge-pt.svg){style="width: 12%; padding-top: 0px;"}](https://www.gnu.org/licenses/gpl-3.0)
-[![Licença: CC BY 4.0](images/cc-by-nc-sa-4-0-license-badge-pt.svg){style="width: 19%; padding-top: 0px;"}](https://creativecommons.org/licenses/by/4.0/)
-
-Esta apresentação foi criada com o sistema de publicação [Quarto](https://quarto.org/). O código e os materiais estão disponíveis no [GitHub](https://github.com/danielvartan/resiclima-pres-2).
+This presentation was created with the [Quarto](https://quarto.org/) Publishing System. The code and materials are available on [GitHub](https://github.com/danielvartan/resiclima-pres-2).
 
 ![](images/allison-horst-figure-1.png){fig-align="center" style="width: 80%; padding-top: 50px;"}
 
 ::: footer
-(Ilustração de [Allison Horst](https://twitter.com/allison_horst))
+(Artwork by [Allison Horst](https://twitter.com/allison_horst))
 :::
 
 ::: {.notes}
 :::
 
-## Referências {.smaller}
+## References {.smaller}
 
 ::: {style="font-size: 0.75em;"}
-De acordo com o Estilo da American Psychological Association ([APA](https://apastyle.apa.org/)), 7ª edição.
+In accordance with the [American Psychological Association (APA) Style](https://apastyle.apa.org/), 7th edition.
 :::
 
 ::: {#refs style="font-size: 0.75em;"}
@@ -573,53 +516,13 @@ De acordo com o Estilo da American Psychological Association ([APA](https://apas
 ::: {.notes}
 :::
 
-## Obrigado! {.nostretch}
+## Thank you! {.nostretch}
 
 ![](images/allison-horst-figure-3.png){fig-align="center" style="width: 70%; padding-top: 25px;"}
 
 ::: footer
-(Ilustração de [Allison Horst](https://twitter.com/allison_horst))
+(Artwork by [Allison Horst](https://twitter.com/allison_horst))
 :::
-
-::: {.notes}
-:::
-
-## {data-menu-title="QR codes" .nostretch}
-
-```{r}
-#| include: false
-
-qr_code(
-  link = "https://linktr.ee/danielvartan",
-  file = here("images", "qrcode-linktree.png"),
-  logo = here("images", "linktree-icon.svg"),
-  frame = here("images", "qrcode-frame.svg")
-)
-```
-
-```{r}
-#| include: false
-
-qr_code(
-  link = "https://danielvartan.github.io/resiclima-pres-2/",
-  file = here("images", "qrcode-presentation.png"),
-  logo = here("images", "github-icon.svg"),
-  frame = here("images", "qrcode-frame.svg")
-)
-```
-
-:::: {.columns}
-::: {.column style="width: 50%; text-align: center; padding-top: 20px;"}
-[Linktree]{.brand-brown style="font-weight: bold;"}
-
-[![](images/qrcode-linktree.png){fig-align="center" style="width: 80%; padding-top: 0px;"}](https://linktr.ee/danielvartan)
-:::
-::: {.column style="width: 50%; text-align: center; padding-top: 20px;"}
-[Apresentação]{.brand-brown style="font-weight: bold;"}
-
-[![](images/qrcode-presentation.png){fig-align="center" style="width: 80%; padding-top: 0px;"}](https://danielvartan.github.io/resiclima-pres-2/)
-:::
-::::
 
 ::: {.notes}
 :::

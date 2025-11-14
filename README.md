@@ -8,11 +8,13 @@
 
 ## Overview
 
-This repository contains the slides from the presentation _Explorando efeitos climáticos com modelos baseados em agentes_ ([`pt-BR`](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)), delivered on November 7, 2025, at the [2nd Meeting on Multidisciplinary Perspectives on Climate Change](https://resiclima.com.br/15/10/2025/recife-recebe-encontro-multidisciplinar-sobre-mudancas-climaticas/) organized by the [Resiclima Network](https://resiclima.com.br).
+This repository contains the slides from the presentation _Exploring Climate Effects with Agent-Based Models_, delivered on November 7, 2025, at the [2nd Meeting on Multidisciplinary Perspectives on Climate Change](https://resiclima.com.br/15/10/2025/recife-recebe-encontro-multidisciplinar-sobre-mudancas-climaticas/) organized by the [Resiclima Network](https://resiclima.com.br).
 
 The slides are available [here](https://danielvartan.github.io/resiclima-pres-2/).
 
 A recording of the presentation, recorded on November 9, 2025, is available [here](https://youtu.be/vZYVYngFVzc).
+
+The presentation have been revised for other occasions. See the [releases page](https://github.com/danielvartan/resiclima-pres-2/releases) for more details.
 
 ## Usage
 
@@ -37,18 +39,18 @@ This will generate the slides in the `docs` directory.
 
 To cite this work, please use the following format:
 
-Vartanian, D. (2025). *Explorando efeitos climáticos com modelos baseados em agentes* \[Presentation\].
+Vartanian, D. (2025). *Exploring climate effects with agent-based models* \[Presentation\].
 <https://danielvartan.github.io/resiclima-pres-2>
 
 A BibLaTeX entry for LaTeX users is:
 
 ``` latex
 @online{vartanian2025,
-  title = {Explorando efeitos climáticos com modelos baseados em agentes},
+  title = {Exploring climate effects with agent-based models},
   author = {{Daniel Vartanian}},
   year = {2025},
   url = {https://danielvartan.github.io/resiclima-pres-2},
-  langid = {pt-BR},
+  langid = {en},
   note = {Presentation}
 }
 ```

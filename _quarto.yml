@@ -10,18 +10,18 @@ project:
   render: [index.qmd]
   post-render: "R/_post-render.R"
 
-title: "Explorando Efeitos Climáticos com Modelos Baseados em Agentes"
+title: "Exploring Climate Effects with Agent-Based Models"
 author: "Daniel Vartanian"
 keyword: >
-  Ciência da Complexidade. Sistemas Complexos. Modelagem Baseada em Agentes.
-  Modelagem Baseada em Indivíduos. LogoClim. Logônia. Mudanças Climáticas.
-  Modelos Conceituais. Modelos Empíricos. Comportamento Emergente.
-  Sistemas Dinâmicos. Sistemas Adaptativos. Auto-organização.
-  Modelagem Computacional. Dinâmica de Sistemas. Interações Micro-Macro.
-  Ciência Generativa. Simulações. NetLogo.
-institute: "Universidade de São Paulo"
-date: 2025-11-07
-date-format: DD/MM/YYYY
+  Complexity Science. Complex Systems. Agent-Based Modeling.
+  Individual-Based Modeling. LogoClim. Logônia. Climate Change.
+  Conceptual Models. Empirical Models. Emergent Behavior.
+  Dynamic Systems. Adaptive Systems. Self-organization.
+  Computational Modeling. Systems Dynamics. Micro-Macro Interactions.
+  Generative Science. Simulations. NetLogo.
+institute: "University of São Paulo"
+date: 2025-11-14
+date-format: long
 
 website:
   favicon: images/sustentarea-icon.svg
@@ -38,8 +38,8 @@ website:
 format:
   revealjs:
     open-graph: true
-    locale: pt-BR
-    lang: pt-BR
+    locale: en
+    lang: en
     code-link: true
     code-fold: true
     link-external-newwindow: true
